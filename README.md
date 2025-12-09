@@ -14,5 +14,11 @@
 - **Escabilidad**: Facilita la expansión y adaptación del software a nuevas necesidades.
 - **Mantenibilidad**: Simplifica el mantenimiento y actualización del software.
 
+## Diferencia entre Software y Hardware
+- **Software**: Conjunto de instrucciones y datos que permiten a una computadora realizar tareas específicas. Es intangible y puede ser modificado fácilmente.
+- **Hardware**: Componentes físicos de una computadora, como el procesador, memoria y dispositivos de almacenamiento. Es tangible y su modificación requiere cambios físicos.
+
+## Relación entre Software y Hardware
+- EL hardware necesita del software para funcionar, y el software necesita del hardware para ejecutarse. Ambos trabajan juntos para proporcionar una experiencia informática completa.
 
 ## Términos comunes
