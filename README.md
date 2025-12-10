@@ -29,7 +29,7 @@
 - **Software de red**: Facilita la comunicación entre diferentes dispositivos en una red (ej. protocolos de red, software de gestión de redes).
 - **Software de entretenAimiento**: Diseñado para el entretenimiento de streaming, reproductores multimedia, videojuegos).
 
-## Ciclos de vida del software
+## Ciclos de vida básico del software
 - el ciclo de vida del software es el proceso que abarca todas las etapas desde la concepción hasta la retirada del software. Incluye fases como:
     - **FASE 1 - Planificación**: Definición de objetivos y requerimientos, análisis de viabilidad y planificación del proyecto. (ej. crear un cronograma de desarrollo y definir el alcance del proyecto).
     - **FASE 2 - Análisis y diseño**: Análisis de los requerimientos y diseño de la arquitectura del software, creación de diagramas y modelos. (ej. diseñar la estructura de la base de datos y la interfaz de usuario).
@@ -38,5 +38,7 @@
     - **FASE 5 - Implementación y mantenimiento**: Despliegue del software para el usuario final, mantenimiento continuo, incluyendo actualizaciones y correcciónes de errores. (ej. lanzar la aplicación en una tienda de aplicaciones y liberar actualizaciones periódicas).
     - **FASE 6 - Retiro**: Decisión de descontinuar el software, migración a nueva tecnologías o versiones. (ej. notificar a los usuarios sobre el fin del soporte y proporcionar opciones de migración).
 
-
+## Ciclos de vida del proyecto de software
+- Su ciclo de vida del proyecto de software abarca todas las fases que un proyecto atraviesa desde su inicio hasta su conclusión. Incluye:
+    - **Iniciación del proyecto**: Definir los objetivos del proyecto, identificar a los interesados y determinar la viabilidad del proyecto. (ej. creación de un documento de proyecto inicial que describa el propósito y alcance del proyecto).
 ## Términos comunes
