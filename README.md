@@ -39,6 +39,35 @@
     - **FASE 6 - Retiro**: Decisión de descontinuar el software, migración a nueva tecnologías o versiones. (ej. notificar a los usuarios sobre el fin del soporte y proporcionar opciones de migración).
 
 ## Ciclos de vida del proyecto de software
-- Su ciclo de vida del proyecto de software abarca todas las fases que un proyecto atraviesa desde su inicio hasta su conclusión. Incluye:
-    - **Iniciación del proyecto**: Definir los objetivos del proyecto, identificar a los interesados y determinar la viabilidad del proyecto. (ej. creación de un documento de proyecto inicial que describa el propósito y alcance del proyecto).
+- Su ciclo de vida del proyecto de software abarca todas las fases que un proyecto atraviesa desde su inicio hasta su conclusión, este ciclo es ensencial para la area administrativa. Incluye:
+    - **FASE 1 - Iniciación del proyecto**: Definir los objetivos del proyecto, identificar a los interesados y determinar la viabilidad del proyecto. (ej. creación de un documento de proyecto inicial que describa el propósito y alcance del proyecto).
+    - **FASE 2 - Planificación del Proyecto**: Crear un plan detallado que incluya el alcance, cronograma, presupuesto y recursos necesarios. Establecer hitos y puntos de control para medir el progreso. (ej. desarrollo de un cronograma con fechas de entrega por cada fase del proyecto, usar diagramas de Gantt para visualizar el progreso).
+    - **FASE 3 - Ejecución del Proyecto**: Implementar el plan de proyecto, coordinar a los equipos y gestionar los recursos para cumplir con los objetivos establecidos. (ej. los desarrolladores comienzan a escribir el código y el equipo de pruebas prepara los casos de prueba).
+    - **FASE 4 - Monitoreo y Control del Proyecto**: Supervisar el progreso del proyecto. Indentificar y gestionar riesgos, asegurar que el proyecto se mantenga dentro del alcance y presupuesto. (ej. revisiones regulares del proyecto para asegurarse de que todo avanza según lo planeado, ajustar el cronograma si es necesario).
+    - **FASE 5 - Cierre del Proyecto**: Concluir todas las actividades del proyecto. Documentar los resultados y realaizar una evaluación final del proyecto. (ej. presentación del software finalizado al cliente y entrega de la documentación del proyecto).
+
+## Software de legado y su manejos
+- El software de legado se refiere a sistemas o aplicaciones antiguos que sigue en uso, pero que han quedado desactualizados en comparación con las tecnologías actuales. A menudo, son cruciales para las operacioones de una organización. (ej. un banco que todavía utiliza un sistema de gestión de cuentas desarrollado hace 20 años).
+    ### Desafíos del software de legado
+    - Mantenimiento complicado: El código puede ser difícil de entender y modificar debido a la falta de documentación o a tecnologías obsoletas.
+    - Compatibilidad limitada: Problemas al integrarse con sistemas modernos.
+    - Falta de soporte: Herramentas y tecnologías que ya no se actualizan.
+    - (ej. dificultad para encontrar desarrolladores que conozca los lenguajes de programación obsolestos).
+    ### Importancia del software de legado
+    - Operaciones críticas: Muchos sistemas de legado manejan funciones esenciales que no puede ser interrumpidas.
+    - Alto costo de reemplaza: Reemplazar completamente un sistema de legado puede ser muy costoso y arriesgado.
+    - (ej. un sistema de reservas de vuelos que ha sido operativo por décadas y es fundamental para la aerolínea).
+    ## Estrategias para manejar el software de legado
+    - Encapsulación: Crear una interfaz que permita que el sistema de legado interactúe con nuevas aplicaciones sin modificar el código original.
+    - Modernización: Refactorizar o reescribir parte del código para mejorar su funcionalidad.
+    - Reemplazo gradual: Sustituir el sistema de legado a fases controladas para minimizar riesgos.
+    - (ej. migrar módulos de un sistema de gestión de inventarios a una nueva plataforma mientras se sigue utilizando el sistema antiguo para otras funciones).
+    ### Herramientas para manejar del software de legado
+    - Wrappers: Herramientas que permiten a sistemas modernos interactuar con software de legado.
+    - Monitoreo: Soluciones para supervisar el rendimiento y la estabilidad del software de legado.
+    - Automatización: Herramientas para automatizar tareas repetitivas y reducir el riesgo de errores humanos.
+    - (ej. uso de una herramienta de monitoreo para detectar cuellos de botella de un sistema de legado).
+
 ## Términos comunes
+- wrappers: Es una pieza de software que "envuelve" otra pieza de software para proporcionar una interfaz diferente o adicional, facilitando la interacción entre sistemas.
+- refactorización: Es el proceso de reestructurar el código existente sin cambiar su comportamiento externo, con el objetivo de mejorar su legibilidad, mantenibilidad y rendimiento.
