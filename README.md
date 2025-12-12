@@ -68,6 +68,60 @@
     - Automatización: Herramientas para automatizar tareas repetitivas y reducir el riesgo de errores humanos.
     - (ej. uso de una herramienta de monitoreo para detectar cuellos de botella de un sistema de legado).
 
+## Requisitos de Software
+- Los requisitos de software son las características y funciones que un sistema debe cumplir para satisfacer las necesidades de sus usuarios y stakeholders (partes interesadas). Se dividen en dos categorías: requisitos funcionales y no funcionales.
+- Es la disciplina que se encarga de identificar, documentar y gestionar los requisitos de un sistema, implica la colaboración con los stakeholders para asegurar que el producto final cumpla con sus expectativas.
+    ### Requisitos funcionales
+    - Describen lo que el sistema debe hacer, incluyen funcionalidades, comportamientos y características específicas.
+    - (ej. un sistema de comercio electrónico, un requisito funcional sería permitir a los usuarios realizar compras en línea).
+    ### Requisitos no funcionales
+    - Describen cómo el sistema debe comportarse, incluyen rendimiento, seguridad, usabilidad, entre otros, más que todo es crucial para la experiencia del usuario y la calidad del software.
+    - (ej. en el mismo sistema de comercio electrónico, un requisito no funciona podría ser que la página cargue en menos de 3 segundos).
+    ### Importancia de los requisitos de software
+    - Aseguran que el producto final cumpla con las expectativas del cliente.
+    - Evitan malentendidos y errores en las etapas posteriores del desarrollo.
+    - (ej. un proyecto de software sin requisitos claros puede llevar a un producto final que no satisface las necesidades del cliente).
+## Fases de la ingeniería de requisitos
+- Elicitación: Recopilación de requisitos a través de entrevistas, cuestionarios y talleres con los stakeholders, etc.
+- Análisis: Evaluación y refinamiento de los requisitos.
+- Documentación: Registro formal de los requisitos en un formato claro y comprensible.
+- Validación: Verificación de que los requisitos cumplen con las necesidades del cliente.
+    ### Resumen y consejos prácticos
+    - Resumen: Los requisitos de softwae son esenciales para definir las funcionalidades y comportamiento de un sistema, La ingeneria de requisitos es crucial para asegurar que el producto final cumpla con las expectativas del client y evite errores costosos.
+    - Consejos prácticos:
+        - Involucra a los stakeholders desde el principio para obtener una comprensión clara de sus necesidades.
+        - Revisa y valida los requisitos continuamente durante el desarrollo del proyecto.
+        - Documenta todo de manera clara y detallada.
+## Técnicas básicas para la recopilación de requisitos
+- Es importante la recopilación de requisitos es la base de un proyecto exitoso.
+- Evita malentendidos y asegura que el producto final cumpla con las expectativas del cliente.
+    ### Técnica 1: Entrevistas
+    - Una de las técnicas más comunes para recopilar requisitos.
+    - Permite obtener información directa de los stakeholders.
+    - (ej. entrevistar al jefe de ventas para entender las necesidades de un sistema CRM).
+    ### Técnica 2: Cuestionarios y encuestas
+    - Cuestionarios y encuentas: útiles para recopilar información de un gran número de personas.
+    - Permiten obtener datos cuantitativos y cualitativos.
+    - (ej. enviar un cuestionario a todos los empleados para identificar las funcionalidades más destacadas en nuevo nuevo sistema de recursos humanos).
+    ### Técnica 3: Observación
+    - Consiste en observar a los usarios en su entorno de trabajo.
+    - Permite identificar necesidades no expresadas verbalmente.
+    - (ej. observar a los operados de manquinaria en una planta para detectar mejoras posibles en el software de control).
+    ### Técnica 4: Revisión de documentos
+    - Consiste en analizar la documentación existente para extraer requisitos.
+    - Útil para proyectos que manejan sistemas o procesos ya establecidos
+    - (ej. revisar manuales de usuario y documentación técnica de un sistema legado para identificar requisitos actuales).
+    ### Técnica 5: Talleres de requisitos
+    - Reuniones estructuradas donde los stakeholders colaboran para definir requisitos.
+    - Fomentan la interacción y aseguran que todas las voces sean escuchadas.
+    - (ej. un taller para definir los requisitos de un nuevo sistema de gestión de inventarios con la participación de todos los departamentos involucrados).
+
+
+
+
 ## Términos comunes
 - wrappers: Es una pieza de software que "envuelve" otra pieza de software para proporcionar una interfaz diferente o adicional, facilitando la interacción entre sistemas.
 - refactorización: Es el proceso de reestructurar el código existente sin cambiar su comportamiento externo, con el objetivo de mejorar su legibilidad, mantenibilidad y rendimiento.
+- stakeholders: Son todas las personas, grupos u organizaciones que tienen un interés o están afectados por un proyecto o sistema de software.
+- Elicitación: Es el proceso de recopilar y definir los requisitos del software a través de la interacción con los stakeholders.
+- Cuantitativos y cualitativos: Se refiere a dos tipos de datos; los cuantitativos son datos numéricos que pueden medirse y analizarse estadísticamente, mientras que los cualitativos son datos descriptivos que proporcionan información sobre características, atributos o cualidades.
