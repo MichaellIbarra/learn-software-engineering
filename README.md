@@ -81,6 +81,7 @@
     - Aseguran que el producto final cumpla con las expectativas del cliente.
     - Evitan malentendidos y errores en las etapas posteriores del desarrollo.
     - (ej. un proyecto de software sin requisitos claros puede llevar a un producto final que no satisface las necesidades del cliente).
+
 ## Fases de la ingeniería de requisitos
 - Elicitación: Recopilación de requisitos a través de entrevistas, cuestionarios y talleres con los stakeholders, etc.
 - Análisis: Evaluación y refinamiento de los requisitos.
@@ -92,6 +93,7 @@
         - Involucra a los stakeholders desde el principio para obtener una comprensión clara de sus necesidades.
         - Revisa y valida los requisitos continuamente durante el desarrollo del proyecto.
         - Documenta todo de manera clara y detallada.
+
 ## Técnicas básicas para la recopilación de requisitos
 - Es importante la recopilación de requisitos es la base de un proyecto exitoso.
 - Evita malentendidos y asegura que el producto final cumpla con las expectativas del cliente.
@@ -116,6 +118,37 @@
     - Fomentan la interacción y aseguran que todas las voces sean escuchadas.
     - (ej. un taller para definir los requisitos de un nuevo sistema de gestión de inventarios con la participación de todos los departamentos involucrados).
 
+## Análisis de requisitos
+- Proceso de entender y clarificar los requisitos recopilados.
+- Identifica inconsistencias, ambigüedades y áreas de mejora.
+    ### Ténicas de análisis de requisitos
+    - Modelado de requisitos: crear diagramas y modelos para visualizar requisitos.
+    - Análisis de casos de uso: Definir cómo los usuarios interactuarán con el sistema.
+    - Revisión de requisitos: Reuniones para discutir y revisar lso requisitos con los stakeholders.
+    ### Qué es la priorización de requisitos?
+    - Determinar la importancia y urgencia de cada requisito.
+    - Asegurar que los requisitos más críticos se aborden primero.
+    ### Métodos de priorización de requisitos
+    - Matriz de prioridad: Clasificación de requisitos en categorías como "alto", "medio" y "bajo".
+    - Método MoSCoW: Clasificación en "Must have" (debe tener), "Should have" (debería tener), "Could have" (podría tener) y "Won't have" (no tendrá).
+    - Análisis de valor: Evaluar el valor de cada requisito aporta al negocio.
+    ### Ejemplo de priorización de requisitos
+    - Desarrollo de una aplicación móvil para gestionar tareas.
+    - Requisitos: Notifiaciones push, integración con calendario, tema oscuro.
+    - Priorización:
+        - Must have: Notificaciones push (esencial para la funcionalidad principal).
+        - Should have: Integración con calendario (mejora la experiencia del usuario).
+        - Could have: Tema oscuro (característica adicional, no esencial).
+    ### Herramientas para el análisis y priorización de requisitos
+    - Herramientas:
+    - JIRA: Para seguimiento y gestión de requisitos.
+    - Trello: para organizar requisitos en tableros visuales.
+    - Confluence: Para documentación colaborativa de requisitos.
+    ### Resumen y consejos prácticos
+    - Resumen: 
+    - Análisis: Entender y clarificar requisitos.
+    - Priorización: Determinar importancia y urgencia.
+    - Consejos prácticos: usa ténicas adecuadas, mantén la comunicación con stakeholders, revisa y ajusta prioridades regularmente.
 
 
 
