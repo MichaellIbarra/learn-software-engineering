@@ -234,6 +234,25 @@
     - Implementación: Codificar el formulario y vincular con la base de datos.
     - Verificación: Probar el formulario y asegurar que los datos se guarden correctamente.
 
+### Principios básico de diseño de software
+- Los principios básicos de diseño de software son directrices que ayudan a crear sistemas de software eficientes, mantenibles y escalables.
+    ### Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
+    - Cada módulo o clase debe tener una única razón para cambiar.
+    - beneficio: Mejora la mantenibilidad y reduce el riesgo de errores.
+    ### Principio de Abierto/Cerrado (OCP - Open/Closed Principle)
+    - Los módulos deben estar abierto para su extesión, pero cerrados para su modificación.
+    - Beneficios: Permite añadir nuevas funcionalidades sin alterar el código existente.
+    ### Principio de Sustitución de Liskov (LSP - Liskov Substitution Principle)
+    - Los objetos de una clase derivada deben poder sustituirse por objetos de la clase base sin afectar la funcionalidad.
+    - Beneficios: Garantiza que las subclases sean intercambiables sus superclases.
+    ### Principio de Segregación de Interfaces (ISP - Interface Segregation Principle)
+    - Los clientes no deben verse obligados a depender de la interfaces que no utilizan.
+    - Beneficio: Evita interfaces grandes y poco flexibles, facilitando el mantenimiento.
+    ### Principio de inversión de dependencias (DIP - Dependency Inversion Principle)
+    - Las depdencias deben ir hacia abstracciones, no hacia implementaciones concretas.
+    - Beneficio: Permite una mayor flexibilidad y desacoplamiento en el diseño.
+
+
 ## Términos comunes
 - wrappers: Es una pieza de software que "envuelve" otra pieza de software para proporcionar una interfaz diferente o adicional, facilitando la interacción entre sistemas.
 - refactorización: Es el proceso de reestructurar el código existente sin cambiar su comportamiento externo, con el objetivo de mejorar su legibilidad, mantenibilidad y rendimiento.
@@ -242,6 +261,7 @@
 - Cuantitativos y cualitativos: Se refiere a dos tipos de datos; los cuantitativos son datos numéricos que pueden medirse y analizarse estadísticamente, mientras que los cualitativos son datos descriptivos que proporcionan información sobre características, atributos o cualidades.
 - Acrónimos: Son palabras formadas por las letras iniciales de un conjunto de palabras, utilizadas para abreviar términos largos o complejos.
 - Funcionalidades funcionales y no funcionales: Los requisitos funcionales describen lo que el sistema debe hacer, mientras que los requisitos no funcionales describen cómo debe comportarse el sistema en términos de rendimiento, seguridad, usabilidad, entre otros.
+- Interfaz de clase: Es una definición que especifica un conjunto de métodos y propiedades que una clase debe implementar, sin definir cómo se implementan esos métodos.
 
 ## Recursos
 - https://ocw.unican.es/pluginfile.php/2168/course/section/1988/plantilla_formato_ieee830.pdf
