@@ -204,7 +204,35 @@
     - Funciones: Reserva de habitacione, gestión de pagos, generación de informes.
     - Requisitos funcionales: Debe permitir la reserva de habitaciones en línea.
     - Requisitos no funcionales: El sistema debe tener un tiempo de respuesta de menos 1 segundo.
-
+### Implementación de los requisitos en el desarrollo de software
+- Los requisitos de software son la base para el desarrollo exitoso de cualquier proyecto de software.
+- Aseguran que el producto final cumpla con las expectativas del cliente y los usuarios finales
+    ### Procesos para implementar los requisitos
+    - 1. Revisión de requisitos: Analizar los requisitos especificados en el SRS.
+    - 2. Diseño de soluciones: Crear un diseño basado en los requisitos.
+    - 3. Implementación: Codificar según el diseño y los requisitos.
+    - 4. Verificación: Asegurarse de que el software cumple con los requisitos.
+    ### Revisión de requisitos
+    - Compresión: Leer y entender cada requisito del SRS.
+    - Identificación de dependencias: Verificar interrelaciones entre requisitos.
+    - Clarificación: Resolver cualquier ambigüedad con stakeholders.
+    ### Diseño de soluciones
+    - Modelado: Crear diagramas y modelos que representen la solución.
+    - Especificación: Detallar cómo cada requisito se implementará en el diseño.
+    - Revisión: Validar el diseño con los requisitos del SRS.
+    ### Implementación del diseño
+    - Codificación: Desarrollar el software según el diseño.
+    - Integración: Combinar diferentes componentes del software.
+    - Documentación: Mantener registro de la implementación.
+    ### Verificación de requisitos
+    - Pruebas: Realizar pruebas para verificar que los requisitos se cumplen.
+    - Revisión: Revisar el software con los stakeholders para confirmar el cumplimiento.
+    - Ajustes: Hacer ajustes según los resultados de las pruebas y revisiones.
+    ### Ejemplo práctico de implementación
+    - Requisito: El sistema debe permitir a los usuarios registrarse en línea.
+    - Diseño: Crear un formulario de registro en la interfaz de usuario.
+    - Implementación: Codificar el formulario y vincular con la base de datos.
+    - Verificación: Probar el formulario y asegurar que los datos se guarden correctamente.
 
 ## Términos comunes
 - wrappers: Es una pieza de software que "envuelve" otra pieza de software para proporcionar una interfaz diferente o adicional, facilitando la interacción entre sistemas.
