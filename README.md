@@ -150,6 +150,60 @@
     - Priorización: Determinar importancia y urgencia.
     - Consejos prácticos: usa ténicas adecuadas, mantén la comunicación con stakeholders, revisa y ajusta prioridades regularmente.
 
+## Qué es el estándar IEEE 830?
+- Un estándar para la especificación de requisitos de software desarrollado por el Instituto de Ingenieros Eléctricos y Electrónicos (IEEE).
+- Proporciona una guía estructurada para documentar requisitos de manera clara y coherente.
+    ### Estructura del estándar IEEE 830
+    - Estructura:
+    - 1. Introducción: Propósito, alcance y definiciones.
+    - 2. Descripción general: Perspectiva del producto, características del usuario.
+    - 3. Requisitos específicos: Requisitos funcionales y no funcionales detallados.
+    - 4. Anexos: Información adicional, definiciones de terminos.
+    ### Sección 1: Introducción
+    - Propósito: ¿Por qué está creando el software?
+    - Alcance: ¿Qué cubrirá y qué no cubrirá el software?
+    - Definiciones: Términos clave y acrónimos utilizados en el documento.
+    ### Sección 2: Descripción general
+    - Perspectiva del producto: Cómo se integra el software en el entorno existente.
+    - Funciones del producto: Descripción de las funciones que el software debe realizar-
+    - Características del usuario: Expectativas y necesidades del usuario finales.
+    ### Sección 3: Requisitos específicos
+    - Requisitos funcionales: Qué debe hacer el software (ej. procesamiento de datos, generación de informes).
+    - Requisitos no funcionales: Cómo debe comportarse el software (ej. rendimiento, seguridad).
+    ### Ejemplo práctico de especificación IEEE 830
+    - Propósito: Sistema de gestión de inventarios.
+    - Funciones: Registro de entradas y salidas, generación de informes.
+    - Requisitos funcionales: Debe permitir registrar entradas de inventario.
+    - Requisitos no funcionales: El sistema debe responder en menos de 2 segundos.
+
+### Qué es un SRS?
+- Un SRS (Software Requirements Specification) es un documento que describe los requisitos del software
+- Actúa como un acuerdo entre los stakeholders y el equipo de desarrollo.
+    ### Importancia del SRS
+    - Claridad: Define claramente lo que se espera del software.
+    - Comunicación: Facilita la comunicación entre stakeholders y desarrolladores.
+    - Prevención de errores: Reduce la probabilidad de malentendidos y errores.
+    ### Estructura de un SRS
+    - Estructura:
+    - Introducción: Propósito, alcance y definiciones.
+    - Descripción general: Perspectiva del producto, funciones, características del usuario.
+    - Requisitos específicos: Requisitos funcionales y no funcionales detallados.
+    ### Sección 1: Introducción
+    - Propósito: ¿Qué objetivo tiene el software?
+    - Alcance: ¿Qué cubrirá y que no cubrira el software?
+    - Definiciones: Términos clave y acrónimos utilizados en el documento.
+    ### Sección 2: Descripción general
+    - Perspectiva del producto: ¿Cómo encaja el software en el entorno actual?
+    - Funciones del producto: ¿Qué debe hacer el software?
+    - Características del usuario: ¿Quiénes son los usuarios finales y cuáles son sus necesidades?
+    ### Sección 3: Requisitos específicos
+    - Requisitos funcionales: Describen las funciones específicas que el software debe realizar.
+    - Requisitos no funcionales: Definen atributos como rendimiento, seguridad y usabilidad.
+    ### Ejemplo práctico de SRS
+    - Propósito: Sistema de reservas de hotel.
+    - Funciones: Reserva de habitacione, gestión de pagos, generación de informes.
+    - Requisitos funcionales: Debe permitir la reserva de habitaciones en línea.
+    - Requisitos no funcionales: El sistema debe tener un tiempo de respuesta de menos 1 segundo.
 
 
 ## Términos comunes
@@ -158,3 +212,8 @@
 - stakeholders: Son todas las personas, grupos u organizaciones que tienen un interés o están afectados por un proyecto o sistema de software.
 - Elicitación: Es el proceso de recopilar y definir los requisitos del software a través de la interacción con los stakeholders.
 - Cuantitativos y cualitativos: Se refiere a dos tipos de datos; los cuantitativos son datos numéricos que pueden medirse y analizarse estadísticamente, mientras que los cualitativos son datos descriptivos que proporcionan información sobre características, atributos o cualidades.
+- Acrónimos: Son palabras formadas por las letras iniciales de un conjunto de palabras, utilizadas para abreviar términos largos o complejos.
+- Funcionalidades funcionales y no funcionales: Los requisitos funcionales describen lo que el sistema debe hacer, mientras que los requisitos no funcionales describen cómo debe comportarse el sistema en términos de rendimiento, seguridad, usabilidad, entre otros.
+
+## Recursos
+- https://ocw.unican.es/pluginfile.php/2168/course/section/1988/plantilla_formato_ieee830.pdf
