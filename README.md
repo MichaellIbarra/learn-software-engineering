@@ -239,18 +239,303 @@
     ### Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
     - Cada módulo o clase debe tener una única razón para cambiar.
     - beneficio: Mejora la mantenibilidad y reduce el riesgo de errores.
+    ```python
+    # ❌ Malo: Una clase con múltiples responsabilidades
+    class Usuario:
+        def guardar_en_bd(self):
+            pass  # Responsabilidad de persistencia
+        def enviar_email(self):
+            pass  # Responsabilidad de comunicación
+    
+    # ✅ Bueno: Separar responsabilidades
+    class Usuario:
+        def __init__(self, nombre):
+            self.nombre = nombre
+    
+    class UsuarioRepository:
+        def guardar(self, usuario):
+            print(f"Guardando {usuario.nombre} en BD")
+    
+    class EmailService:
+        def enviar(self, usuario, mensaje):
+            print(f"Email enviado a {usuario.nombre}")
+    ```
     ### Principio de Abierto/Cerrado (OCP - Open/Closed Principle)
     - Los módulos deben estar abierto para su extesión, pero cerrados para su modificación.
     - Beneficios: Permite añadir nuevas funcionalidades sin alterar el código existente.
+    ```python
+    from abc import ABC, abstractmethod
+    
+    class Forma(ABC):
+        @abstractmethod
+        def area(self):
+            pass
+    
+    class Rectangulo(Forma):
+        def __init__(self, ancho, alto):
+            self.ancho = ancho
+            self.alto = alto
+        
+        def area(self):
+            return self.ancho * self.alto
+    
+    class Circulo(Forma):
+        def __init__(self, radio):
+            self.radio = radio
+        
+        def area(self):
+            return 3.14159 * self.radio ** 2
+    
+    # Uso: Agregar nuevas formas sin modificar código existente
+    def calcular_area_total(formas):
+        return sum(forma.area() for forma in formas)
+    ```
     ### Principio de Sustitución de Liskov (LSP - Liskov Substitution Principle)
     - Los objetos de una clase derivada deben poder sustituirse por objetos de la clase base sin afectar la funcionalidad.
     - Beneficios: Garantiza que las subclases sean intercambiables sus superclases.
+    ```python
+    class Ave:
+        def volar(self):
+            return "Volando..."
+    
+    class Aguila(Ave):
+        def volar(self):
+            return "Águila volando alto"
+    
+    class Paloma(Ave):
+        def volar(self):
+            return "Paloma volando suavemente"
+    
+    # ✅ Funciona correctamente - cualquier Ave puede volar
+    def hacer_volar(ave: Ave):
+        return ave.volar()
+    
+    # Uso: Las subclases son intercambiables
+    aguila = Aguila()
+    paloma = Paloma()
+    
+    print(hacer_volar(aguila))  # Funciona
+    print(hacer_volar(paloma))  # Funciona igual
+    ```
     ### Principio de Segregación de Interfaces (ISP - Interface Segregation Principle)
-    - Los clientes no deben verse obligados a depender de la interfaces que no utilizan.
+    - Los clientes no deben verses obligados a depender de la interfaces que no utilizan.
     - Beneficio: Evita interfaces grandes y poco flexibles, facilitando el mantenimiento.
-    ### Principio de inversión de dependencias (DIP - Dependency Inversion Principle)
-    - Las depdencias deben ir hacia abstracciones, no hacia implementaciones concretas.
+    ```python
+    from abc import ABC, abstractmethod
+    
+    # ✅ Bueno: Interfaces específicas y pequeñas
+    class Imprimible(ABC):
+        @abstractmethod
+        def imprimir(self):
+            pass
+    
+    class Escaneable(ABC):
+        @abstractmethod
+        def escanear(self):
+            pass
+    
+    class ImpresoraSimple(Imprimible):
+        def imprimir(self):
+            return "Imprimiendo documento"
+    
+    class ImpresoraMultifuncion(Imprimible, Escaneable):
+        def imprimir(self):
+            return "Imprimiendo documento"
+        
+        def escanear(self):
+            return "Escaneando documento"
+    
+    # Uso: Cada clase implementa solo lo que necesita
+    ```
+    ### Principio de Inversión de Dependencias (DIP - Dependency Inversion Principle)
+    - Las dependencias deben ir hacia abstracciones, no hacia implementaciones concretas.
     - Beneficio: Permite una mayor flexibilidad y desacoplamiento en el diseño.
+    ```python
+    from abc import ABC, abstractmethod
+    
+    # Abstracción
+    class ServicioNotificacion(ABC):
+        @abstractmethod
+        def enviar(self, mensaje):
+            pass
+    
+    # Implementaciones concretas
+    class EmailService(ServicioNotificacion):
+        def enviar(self, mensaje):
+            return f"Email: {mensaje}"
+    
+    class SMSService(ServicioNotificacion):
+        def enviar(self, mensaje):
+            return f"SMS: {mensaje}"
+    
+    # Clase de alto nivel depende de abstracción
+    class GestorPedidos:
+        def __init__(self, notificador: ServicioNotificacion):
+            self.notificador = notificador
+        
+        def procesar_pedido(self):
+            return self.notificador.enviar("Pedido procesado")
+    
+    # Uso: Fácil cambio de implementación
+    gestor = GestorPedidos(EmailService())
+    print(gestor.procesar_pedido())  # Usa email
+    ```
+    ### Ejemplos prácticos de principios de diseño
+    - Ejemplo 1: Aplicación de e-commerce utilizando el principio de responsabilidad única para manejar pagos y usuarios en módulos separados.
+    - Ejemplo 2: Uso de principio de abierto/cerrado para añadir nuevos métodos de pago sin modificar el código de procesamiento existente.
+    - Ejemplo 3: Implementación del principio de sustitución de Liskov en una jerarquía de clases de productos, permitiendo que diferentes tipos de productos se manejen de manera uniforme.
+    - Ejemplo 4: Aplicación del principio de segregación de interfaces para crear interfaces específicas para diferentes tipos de usuarios (administradores, clientes).
+    - Ejemplo 5: Uso del principio de inversión de dependencias para permitir la inyección de dependencias en un sistema de notificaciones, facilitando el cambio entre diferentes servicios de notificación.
+
+### Patrones de diseño comunes
+- Los patrones de diseño son soluciones reusables a un problema común en el diseño de software.
+- Beneficios: Proporciona soluciones probadas y bien documentas.
+    ### Patrón Singleton
+    - Asegura que una clase tenga una única instancia y proporciona un punto de acceso global a ella.
+    - Beneficios: Controla el acceso a recursos compartidos y reduce el uso de memoria.
+    - (ej. conexion a base de datos, configuración de aplicaciones).
+    ```python
+    class Database:
+        _instance = None
+        
+        def __new__(cls):
+            if cls._instance is None:
+                cls._instance = super().__new__(cls)
+            return cls._instance
+    
+    # Uso: Solo existe una conexión sin importar cuántas veces la crees
+    db1 = Database()
+    db2 = Database()
+    print(db1 is db2)  # True - Es la misma instancia
+    ```
+    ### Patrón Factory Method
+    - Define una interfaz para crear objetos, pero permite a las subclases decidir qué clase instanciar.
+    - Beneficios: Facilita la creación de objetos sin depender de clases concretas.
+    - (ej. creación de diferentes tipos de documentos en una aplicación de procesamiento de texto, como Word, PDF).
+    ```python
+    class DocumentFactory:
+        @staticmethod
+        def create_document(doc_type):
+            if doc_type == "pdf":
+                return PDFDocument()
+            elif doc_type == "word":
+                return WordDocument()
+            
+    # Uso: Crear documentos sin conocer la clase específica
+    doc = DocumentFactory.create_document("pdf")
+    doc.save()  # Guarda como PDF automáticamente
+    ```
+    ### Patrón Observer
+    - Permite a un objeto notificar a otros objetos sobre cambios en su estado.
+    - Beneficios: Facilita la comunicación entre objetos sin acoplarlos estrechamente.
+    - (ej. sistema de notificaciones en una aplicación).
+    ```python
+    class Newsletter:
+        def __init__(self):
+            self._subscribers = []
+            
+        def subscribe(self, subscriber):
+            self._subscribers.append(subscriber)
+            
+        def notify(self, message):
+            for subscriber in self._subscribers:
+                subscriber.update(message)
+    
+    class EmailSubscriber:
+        def update(self, message):
+            print(f"Email enviado: {message}")
+    
+    # Uso: Notifica automáticamente a todos los suscriptores
+    newsletter = Newsletter()
+    newsletter.subscribe(EmailSubscriber())
+    newsletter.notify("¡Nueva publicación!")  # Todos reciben la notificación
+    ```
+    ### Patrón Strategy
+    - Define una familia de algoritmos, encapsula cada uno y los hace intercambiables.
+    - Beneficios: Permite cambiar el comportamiento de un objeto en tiempo de ejecución.
+    - (ej. algoritmos de clasificación, QuickSort, MergeSort, etc).
+    ```python
+    class PaymentProcessor:
+        def __init__(self, strategy):
+            self._strategy = strategy
+            
+        def set_strategy(self, strategy):
+            self._strategy = strategy
+            
+        def process_payment(self, amount):
+            return self._strategy.pay(amount)
+    
+    class CreditCardPayment:
+        def pay(self, amount):
+            return f"Pagando ${amount} con tarjeta de crédito"
+    
+    class PayPalPayment:
+        def pay(self, amount):
+            return f"Pagando ${amount} con PayPal"
+    
+    # Uso: Cambiar algoritmo de pago en tiempo de ejecución
+    processor = PaymentProcessor(CreditCardPayment())
+    print(processor.process_payment(100))  # Tarjeta de crédito
+    
+    processor.set_strategy(PayPalPayment())
+    print(processor.process_payment(100))  # PayPal
+    ```
+    ### Patrón Decorator
+    - Permite añadir funcionalidades a un objeto de manera dinámica sin alterar su estructura.
+    - Beneficios: Proporciona una manera flexible de estender el comportamiento de los objetos.
+    - (ej. añadir funcionalidades adicionales a una ventana en una aplicación)
+    ```python
+    class Cafe:
+        def costo(self):
+            return 5
+        
+        def descripcion(self):
+            return "Café simple"
+    
+    class DecoradorCafe:
+        def __init__(self, cafe):
+            self._cafe = cafe
+            
+        def costo(self):
+            return self._cafe.costo()
+            
+        def descripcion(self):
+            return self._cafe.descripcion()
+    
+    class Leche(DecoradorCafe):
+        def costo(self):
+            return self._cafe.costo() + 2
+            
+        def descripcion(self):
+            return self._cafe.descripcion() + " + Leche"
+    
+    class Azucar(DecoradorCafe):
+        def costo(self):
+            return self._cafe.costo() + 1
+            
+        def descripcion(self):
+            return self._cafe.descripcion() + " + Azúcar"
+    
+    # Uso: Agregar funcionalidades dinámicamente
+    cafe = Cafe()
+    cafe_con_leche = Leche(cafe)
+    cafe_completo = Azucar(cafe_con_leche)
+    
+    print(cafe_completo.descripcion())  # "Café simple + Leche + Azúcar"
+    print(f"Costo: ${cafe_completo.costo()}")  # Costo: $8
+    ```
+    ### Ejemplo práctico de patrones de diseño
+    - Ejemplo 1: Implementación del patrón Singleton para la configuración global de una aplicación
+    - Ejemplo 2: Uso del patrón Factory Method para crear diferentes tipos de notificaciones (email, SMS).
+    - Ejemplo 3: Aplicación del patrón Observer para un sistema de actualización en tiempo real.
+    - Ejemplo 4: Implementación del patrón Strategy para diferentes algoritmos de compresión de datos, ya que permite cambiar el algoritmo según las necesidades, ejemplo ZIP, RAR.
+    - Ejemplo 5: Uso del patrón Decorator para añadir funcionalidades adicionales a un objeto de manera dinámica, como agregar características a un producto en una tienda en línea (ej. envoltura de regalo, envío rápido).
+    ### Consejos para aplicar patrones de diseño
+    - Evalúa las necesidades: elige el patrón adecuado para el problema específico.
+    - Mantén la simplicidad: No uses patrones inncesarios, mantén el diseño simple.
+    - Documenta: Registra el uso de patrones y su propósito.
+
+
 
 
 ## Términos comunes
