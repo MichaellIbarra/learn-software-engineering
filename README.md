@@ -234,7 +234,7 @@
     - Implementación: Codificar el formulario y vincular con la base de datos.
     - Verificación: Probar el formulario y asegurar que los datos se guarden correctamente.
 
-### Principios básico de diseño de software
+### Principios de diseño de software
 - Los principios básicos de diseño de software son directrices que ayudan a crear sistemas de software eficientes, mantenibles y escalables.
     ### Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
     - Cada módulo o clase debe tener una única razón para cambiar.
@@ -535,6 +535,49 @@
     - Mantén la simplicidad: No uses patrones inncesarios, mantén el diseño simple.
     - Documenta: Registra el uso de patrones y su propósito.
 
+### Diseño de interfaces de usuario
+- Qué es el interfaz de usuario?: es el punto de interacción entre el usuario y el sistema.
+- Importancia: Afecta la usabilidad y la satisfacción del usuario.
+    ### Principios de diseño de interfaces
+    - Simplicidad: Mantén las interfaces limpias y libres de elementos innecesarios.
+    - Consistencia: Usa elementos de diseño y comportamiento coherentes.
+    - Retroalimentación: Proporciona respuestas claras a las acciones del usuario.
+    - Accesibilidad: Asegúrate de que la interfaz sea usable para todos los usuarios.
+    ### Diseño centrado en el usuario
+    - Diseño que prioriza las necesidades y comportamientos del usuario.
+    - Beneficio: Mejora la usabilidad y la experiencia del usuario.
+    - (ej. creación de perfiles de usuario para adaptadar la interfaz a diferentes necesidades).
+    ### Ejemplo de diseño de interfaz
+    - Elementos: Botones, menús, formularios.
+    - Principios aplicados:
+    - Simplicidad: Diseño limpio con espacio en blanco adecuado.
+    - Consistencia: Uso de colores coherentes en toda la interfaz.
+    - Retroalimentación: Mensajes claros al completar acciones.
+    - Accesibilidad: Texto legible y opciones de contraste alto.
+    ### Ejemplo de propotipo interactivo
+    - Un propotipo interactivo muestra cómo los usuarios interactúan con la interfaz.
+    - Beneficio: Permite probar y ajustar el diseño antes de la implementación.
+
+### Documentación de diseño de software
+- Es el registro detallado del diseño del software
+- Propósito: Facilita la compresión, implementación y mantenimiento del sistema.
+    ### Tipos de documentación de diseño
+    - Documentación Técnica: Diagramas, especificaciones, arquitectura.
+    - Documentación del Usuario: Manuales, guías de usuario.
+    - Documentación de Desarrollo: Notas de desarrollo, comentarios en el código.
+    ### Componentes clave de la documentación de diseño
+    - Diagrama de arquitectura: Representa la estructura del sistema.
+    - Especificaciones de componentes: Detalla las funcionalidades de cada componente.
+    - Interfaz de usuario: Descripciones y ejemplos de las interfaces.
+    ### Ejemplo de documentación de diseño - diagrama de arquitectura
+    - Diagrama que muestra la estructura del sistema.
+    - Beneficio: Ayuda a entender la relación entre componentes.
+    ### Ejemplo de documentación de diseño - especificaciones de componentes
+    - Detalles sobre la funcionalidad y diseño de cada componente.
+    - Beneficio: Asegura que cada componente cumpla con los requisitos.
+    ### Documentación de interfaz de usuario
+    - Incluye descripciones de la interfaz y ejemplos visuales.
+    - Beneficios: Facilita el desarrollo y la prueba de la interfaz.
 
 
 
@@ -547,6 +590,12 @@
 - Acrónimos: Son palabras formadas por las letras iniciales de un conjunto de palabras, utilizadas para abreviar términos largos o complejos.
 - Funcionalidades funcionales y no funcionales: Los requisitos funcionales describen lo que el sistema debe hacer, mientras que los requisitos no funcionales describen cómo debe comportarse el sistema en términos de rendimiento, seguridad, usabilidad, entre otros.
 - Interfaz de clase: Es una definición que especifica un conjunto de métodos y propiedades que una clase debe implementar, sin definir cómo se implementan esos métodos.
+- Propotipo: Es una representación preliminar de un producto o sistema que permite a los diseñadores y desarrolladores visualizar y probar conceptos antes de la implementación completa.
+- MVP (Minimum Viable Product): Es la versión más básica de un producto que incluye solo las características esenciales necesarias para satisfacer a los primeros usuarios y obtener retroalimentación para futuras mejoras.
 
 ## Recursos
 - https://ocw.unican.es/pluginfile.php/2168/course/section/1988/plantilla_formato_ieee830.pdf
+- https://saga.so/95fc47a2-27bc-466f-b7ad-233940b499e9
+- https://es.scribd.com/document/469148576/Plantilla-Proyecto-de-Desarrollo-de-Sw
+- https://mpsm.gob.pe/public/mesavirtual/mv_2336_guia_para_la_documentacion_de_proyectos_de_software.pdf
+- https://es.scribd.com/document/422195528/Guia-Para-La-Documentacion-de-Proyectos-2
