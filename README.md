@@ -579,6 +579,46 @@
     - Incluye descripciones de la interfaz y ejemplos visuales.
     - Beneficios: Facilita el desarrollo y la prueba de la interfaz.
 
+### Principios de Jacob Nielsen para el desarrollo
+- ¿Quién es Jacob Nielsen?: es un Experto en usabilidad y diseli de interfaces.
+- Contribuciones: Principios de usabilidad para interfaces web.
+    ### Principios de usabilidad de Jacob Nielsen
+    - Visibilidad del estado del sistema: Mantener a los usuarios informados sobre lo que está ocurriendo.
+    - Compatibilidad con el mundo real.
+    - Control y libertad del usuario.
+    - Consistencia y estándares.
+    - Prevención de errores.
+    - Reconocimiento en lugar de memorización.
+    - Flexibilidad y eficiencia de uso.
+    - Estética y diseño minimalista.
+    - Ayuda a los usuarios a reconocer errores.
+    - Ayuda y docmentación.
+    ### Visibilidad del estado del sistema
+    - El usuario debe saber qué está pasando en el sistema en todo momento.
+    - Ej. Indicadores de carga, mensajes de confirmación.
+    ### Compatibilidad con el mundo real
+    - usa lenguaje, iconos y conceptos que sean familiares para los usuarios.
+    - Ej. Menús y botones que imitan objetos físicos conocidos.
+    ### Control y libertad del usuario
+    - Permite a los usuarios deshacer y rehacer acciones fácilmente.
+    - Ej. Botones de deshacer/rehacer en editores de texto.
+    ### Consistencia y estándares
+    - Mantén un diseño y comportamiento consistente a lo largo de la interfaz.
+    - Ej. Uso uniforme de colores y botones.
+    ### Prevención de errores
+    - Diseña la interfaz para evitar errores en lugar de solo ofrecer mensajes de error.
+    - Ej. Validación de formularios en tiempo real.
+    ### Reconocimiento en lugar de memorización
+    - Facilita el reconocimiento de opciones y funciones en lugar de requerir que los usuarios memoricen inforomación.
+    - Ej. Menús desplegables y botones con iconos descriptivos.
+    ### Flexibilidad y eficiencia de uso
+    - Permite a los usuarios personalizar la interfaz para adaptarse a sus necesidades.
+    - Ej. Atajos de teclaod y configuración personalizables como cambair de tema.
+    ### Estética y diseño minimalista
+    - El diseño debe ser estéticamente agradable y libre de elementos inncesarios.
+    - Ej. Interfaces limpias con diseños minimalista.
+
+
 
 
 ## Términos comunes
