@@ -1,0 +1,51 @@
+
+1
+
+Automatic Zoom
+Balotario 1 - 2025 
+ 
+Bloque I 
+1. Comentar el ciclo de desarrollo en tu último experiencia 
+2. Experiencia en Desarrollo de Microservicios 
+3. Despliegue en Jenkins o similar? 
+4. Qué pasaba si se bloqueaba en sonarqube 
+5. han usado con eureka 
+6. has usado circuit breaker 
+7. has diseñado contratos de api 
+8. quien te entregaba la especificación de requerimiento? 
+9. Usaste JIRA? 
+10. has interactuaba con arquitecto o lider técnico? 
+11. has visto microservicios asíncronos? 
+12. publicabas mensaje o configuraba tópicos 
+13. has realizado la configuración de pipeline? 
+14. a nivel de git como lo trabajabas? 
+15. Cuando hacías revisión de pares, que lineamientos validaste? 
+16. Cómo mantenían la documentación ? 
+17. donde se desplegaban las apis? 
+18. has visto algo de configmaps? 
+19. has escucha de gitops? 
+20. cuando desarrollaban temas de secretos como hacían? 
+21. cuál era el mínimo de cobertura 
+22. has escuchado de patrón AAA 
+23. has usado junit, mockito, cucumber? 
+24. has hecho pruebas de integración? 
+25. como hacías p funcionales? 
+26. ha trabajado con Qa? 
+27. has visto herramienta de monitoreo? 
+28. En dynatrace que veías? 
+29. hacían pruebas de rendimiento? 
+30. que versión de java tienes más fresco? 
+31. has usado spring security? 
+32. seguían alguna arquitectura para el desarrollo 
+33. a nivel de documentación  que hacían? 
+34. has interactuado con bd relacional y no relacional 
+35. has usado jpa 
+36. te han encargado algo que has tenido dependencias con otros equipos? 
+37. como manejaban las fechas comprometidas si aparecían dependencias 
+bloqueantes?  
+Bloque II 
+ 
+1. Cual es ha sido tu última experiencia laboral -stack tecnológico 
+2. comentar fases por las que pasaba endToend 
+3. trabajan con jira? Jira / confluence 
+4. quien te guiba el lt o arquitecto? 

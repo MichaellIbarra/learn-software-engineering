@@ -60,6 +60,8 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - Monolitos vs Microservicios
 - Service-Oriented Architecture (SOA)
 - Event-Driven Architecture
+- Message Brokers (Apache Kafka, RabbitMQ)
+- Kafka: Topics, Producers, Consumers, Partitions
 - CQRS (Command Query Responsibility Segregation)
 - Event Sourcing
 - Saga Pattern para transacciones distribuidas
@@ -75,6 +77,8 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - Spring Data JPA: Repositories, Queries, Transactions
 - Spring Security: Authentication, Authorization, OAuth2, JWT
 - Spring Cloud: Service Discovery, Config Server, Gateway
+- Spring Scheduler: @Scheduled, Cron expressions, Async tasks
+- Spring Task Execution: ThreadPoolTaskExecutor, @Async
 
 ### 3.2 Microservicios con Java
 - Anatomía de un microservicio
@@ -149,6 +153,14 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - Docker registry management
 - Environment management (dev, staging, prod)
 
+### 5.5 GitOps y Deployment Automation
+- GitOps principles y workflows
+- ArgoCD, Flux para continuous deployment
+- Git como single source of truth
+- Declarative infrastructure management
+- Rollback automático y drift detection
+- Multi-environment promotion pipelines
+
 ---
 
 ## FASE 6: TESTING Y CALIDAD
@@ -157,6 +169,8 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - Pirámide de testing: Unit, Integration, E2E
 - Test-Driven Development (TDD)
 - Behavior-Driven Development (BDD)
+- Patrón AAA (Arrange, Act, Assert)
+- Given-When-Then pattern
 - Contract testing (Pact, Spring Cloud Contract)
 
 ### 6.2 Testing en Java

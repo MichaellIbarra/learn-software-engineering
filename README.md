@@ -234,7 +234,7 @@
     - Implementación: Codificar el formulario y vincular con la base de datos.
     - Verificación: Probar el formulario y asegurar que los datos se guarden correctamente.
 
-### Principios de diseño de software
+### Principios de diseño de software (SOLID)
 - Los principios básicos de diseño de software son directrices que ayudan a crear sistemas de software eficientes, mantenibles y escalables.
     ### Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
     - Cada módulo o clase debe tener una única razón para cambiar.
