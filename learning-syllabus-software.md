@@ -70,7 +70,18 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 
 ## FASE 3: TECNOLOGÍAS BACKEND JAVA
 
-### 3.1 Spring Framework Ecosystem
+### 3.1 Fundamentos Java Avanzado
+- Java 8+ Features: Lambdas, Streams API, Optional
+- Java 11+ Features: var keyword, HTTP Client, String methods
+- Java 17+ Features: Records, Sealed classes, Pattern matching
+- Collections Framework avanzado: HashMap internals, ConcurrentHashMap
+- Memory Management: Heap, Stack, Garbage Collection (G1, ZGC)
+- Multithreading: Executors, CompletableFuture, ForkJoinPool
+- JVM Tuning: JVM parameters, profiling, memory analysis
+- Reflection y Annotations
+- Generics avanzados y Type erasure
+
+### 3.2 Spring Framework Ecosystem
 - Spring Boot: Auto-configuration, Starters, Actuator
 - Spring WebMVC: REST APIs, Exception Handling
 - Spring WebFlux: Programación reactiva, Mono/Flux
@@ -80,7 +91,7 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - Spring Scheduler: @Scheduled, Cron expressions, Async tasks
 - Spring Task Execution: ThreadPoolTaskExecutor, @Async
 
-### 3.2 Microservicios con Java
+### 3.3 Microservicios con Java
 - Anatomía de un microservicio
 - Service mesh (Istio, Linkerd)
 - API Gateway patterns
