@@ -176,7 +176,7 @@
     - Requisitos funcionales: Debe permitir registrar entradas de inventario.
     - Requisitos no funcionales: El sistema debe responder en menos de 2 segundos.
 
-### Qué es un SRS?
+## Qué es un SRS?
 - Un SRS (Software Requirements Specification) es un documento que describe los requisitos del software
 - Actúa como un acuerdo entre los stakeholders y el equipo de desarrollo.
     ### Importancia del SRS
@@ -204,7 +204,7 @@
     - Funciones: Reserva de habitacione, gestión de pagos, generación de informes.
     - Requisitos funcionales: Debe permitir la reserva de habitaciones en línea.
     - Requisitos no funcionales: El sistema debe tener un tiempo de respuesta de menos 1 segundo.
-### Implementación de los requisitos en el desarrollo de software
+## Implementación de los requisitos en el desarrollo de software
 - Los requisitos de software son la base para el desarrollo exitoso de cualquier proyecto de software.
 - Aseguran que el producto final cumpla con las expectativas del cliente y los usuarios finales
     ### Procesos para implementar los requisitos
@@ -234,7 +234,7 @@
     - Implementación: Codificar el formulario y vincular con la base de datos.
     - Verificación: Probar el formulario y asegurar que los datos se guarden correctamente.
 
-### Principios de diseño de software (SOLID)
+## Principios de diseño de software (SOLID)
 - Los principios básicos de diseño de software son directrices que ayudan a crear sistemas de software eficientes, mantenibles y escalables.
     ### Principio de Responsabilidad Única (SRP - Single Responsibility Principle)
     - Cada módulo o clase debe tener una única razón para cambiar.
@@ -387,7 +387,7 @@
     - Ejemplo 4: Aplicación del principio de segregación de interfaces para crear interfaces específicas para diferentes tipos de usuarios (administradores, clientes).
     - Ejemplo 5: Uso del principio de inversión de dependencias para permitir la inyección de dependencias en un sistema de notificaciones, facilitando el cambio entre diferentes servicios de notificación.
 
-### Patrones de diseño comunes
+## Patrones de diseño comunes
 - Los patrones de diseño son soluciones reusables a un problema común en el diseño de software.
 - Beneficios: Proporciona soluciones probadas y bien documentas.
     ### Patrón Singleton
@@ -535,7 +535,7 @@
     - Mantén la simplicidad: No uses patrones inncesarios, mantén el diseño simple.
     - Documenta: Registra el uso de patrones y su propósito.
 
-### Diseño de interfaces de usuario
+## Diseño de interfaces de usuario
 - Qué es el interfaz de usuario?: es el punto de interacción entre el usuario y el sistema.
 - Importancia: Afecta la usabilidad y la satisfacción del usuario.
     ### Principios de diseño de interfaces
@@ -558,7 +558,7 @@
     - Un propotipo interactivo muestra cómo los usuarios interactúan con la interfaz.
     - Beneficio: Permite probar y ajustar el diseño antes de la implementación.
 
-### Documentación de diseño de software
+## Documentación de diseño de software
 - Es el registro detallado del diseño del software
 - Propósito: Facilita la compresión, implementación y mantenimiento del sistema.
     ### Tipos de documentación de diseño
@@ -579,7 +579,7 @@
     - Incluye descripciones de la interfaz y ejemplos visuales.
     - Beneficios: Facilita el desarrollo y la prueba de la interfaz.
 
-### Principios de Jacob Nielsen para el desarrollo
+## Principios de Jacob Nielsen para el desarrollo
 - ¿Quién es Jacob Nielsen?: es un Experto en usabilidad y diseli de interfaces.
 - Contribuciones: Principios de usabilidad para interfaces web.
     ### Principios de usabilidad de Jacob Nielsen
