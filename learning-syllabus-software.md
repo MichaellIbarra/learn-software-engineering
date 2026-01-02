@@ -80,6 +80,7 @@ Desarrollar la mentalidad de ingeniería de software para diferenciarse técnica
 - JVM Tuning: JVM parameters, profiling, memory analysis
 - Reflection y Annotations
 - Generics avanzados y Type erasure
+- Programación funcional en Java
 
 ### 3.2 Spring Framework Ecosystem
 - Spring Boot: Auto-configuration, Starters, Actuator
