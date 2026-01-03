@@ -73,7 +73,6 @@ Las metodologías ágiles van más allá del enfoque incremental/iterativo al in
 
 
 
-
 ## Términos comunes
 - spring: Iteración o ciclo de trabajo en metodologías ágiles, típicamente de 1 a 4 semanas, durante el cual se completa un conjunto específico de tareas o funcionalidades.
 - ágil: Capacidad de adaptarse rápidamente a los cambios y responder de manera eficiente a las necesidades del proyecto y del cliente.
@@ -84,3 +83,4 @@ Las metodologías ágiles van más allá del enfoque incremental/iterativo al in
 - incremental: Enfoque de desarrollo donde el producto se construye y entrega en pequeñas partes o incrementos, cada uno añadiendo funcionalidad al producto final.
 - marco de trabajo: Estructura o conjunto de prácticas y principios que guían la gestión y ejecución de proyectos.
 - señirse: Ajustarse o conformarse a algo, como un plan o contrato.
+- regla 80/20: formulado por Vilfredo Pareto, que establece que aproximadamente el 80% de los efectos provienen del 20% de las causas, aplicado en gestión de proyectos para priorizar tareas que generan mayor valor.
