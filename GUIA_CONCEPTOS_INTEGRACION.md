@@ -2861,23 +2861,2017 @@ Los conceptos mas importantes son:
 
 Con esta guia tienes la base para entender los instructivos y empezar a trabajar. Cada caso es diferente pero el proceso general es siempre el mismo: identificar, analizar, corregir, relanzar, validar.
 
-escalar coorreos,escale
-umbral, que es el graficos de aws
-pruebas de querys
-weblogic server Oracle (x)
-putty ssh server
-aws cloud watch (x)
-post venta
-CYBERARK
-elastic (x)
-DYNATRACE 
-large dta editor cilo , para seguir la traza
-aprender hacer gráficos en sheet
-datapower Gateway
-indicndias transversanesl : ocupan varias personas , dispatcher para distribuir, destrabar, 
-indicendica escalable, son jefes, si es un tike, una pronta intración,
-se debe entender de las 24 horas, 8 estados críticos  de las 4 horas
-carmencitas (dispatcher) ->  roció y Royer () - >
+---
+
+## 31. ESCALAMIENTO DE CORREOS Y CASOS
+
+### Que es escalar:
+
+**ESCALAR** significa subir un caso o incidencia a un nivel superior cuando:
+- No puedes resolverlo con tus accesos/conocimientos
+- El problema requiere decision de negocio
+- Supera el tiempo de resolucion permitido
+- Es critico y afecta a muchos usuarios
+
+### Niveles de escalamiento:
+
+**NIVEL 1 (N1) - Analista de Integracion (TU):**
+- Monitoreo de alertas
+- Correccion de errores conocidos
+- Relanzamiento de procesos
+- Tiempo de resolucion: 2-4 horas
+
+**NIVEL 2 (N2) - Equipo Especializado:**
+- Problemas en sistemas especificos (SAP, BSCS, HLR)
+- Errores de configuracion
+- Bugs en servicios web
+- Tiempo de resolucion: 4-8 horas
+
+**NIVEL 3 (N3) - Desarrollo/Arquitectura:**
+- Errores de codigo (bugs)
+- Cambios en logica de negocio
+- Problemas de infraestructura
+- Tiempo de resolucion: 1-3 dias
+
+**NIVEL 4 (N4) - Proveedores/Vendors:**
+- Oracle, IBM, SAP (soporte oficial)
+- Problemas de licenciamiento
+- Bugs de producto
+- Tiempo de resolucion: 3-10 dias
+
+### Cuando escalar:
+
+**Escala INMEDIATAMENTE si:**
+- Servicio caido que afecta a clientes (severidad critica)
+- No tienes accesos para resolver
+- El error es de otro sistema (SAP, HLR, BSCS)
+- Detectas un bug en el codigo
+
+**Escala DENTRO DE 2 HORAS si:**
+- Intentaste resolver pero no funciona
+- Necesitas validacion de negocio
+- El error se repite constantemente
+
+**Escala DENTRO DE 4 HORAS si:**
+- Esta fuera de tu alcance
+- Requiere cambio en configuracion
+- Necesitas permisos especiales
+
+### Como escalar correctamente:
+
+**1. Recopilar informacion:**
+```
+- ID de transaccion
+- Numero de ticket (INT-000-XXXX)
+- Lineas/clientes afectados
+- Fecha y hora del error
+- Queries ejecutadas
+- Logs del error (extracto relevante)
+- Que intentaste hacer
+```
+
+**2. Redactar correo de escalamiento:**
+
+**Asunto:**
+```
+[URGENTE] Escalamiento N2 - INT-000-1234 - Error en facturacion SAP
+```
+
+**Cuerpo del correo:**
+```
+Estimado equipo SAP,
+
+Requiero soporte para resolver el siguiente caso:
+
+TICKET: INT-000-1234
+SEVERIDAD: Alta
+SISTEMA AFECTADO: SAP - Modulo de facturacion
+IMPACTO: 15 clientes sin factura generada
+
+DESCRIPCION DEL PROBLEMA:
+Las ordenes de recarga CRL no generan factura en SAP.
+Error reportado: "No existe el cliente ZZ00040725"
+
+EVIDENCIAS:
+- OT afectadas: OT250623.1117.100001, OT250614.1302.100001
+- Query ejecutada:
+  SELECT * FROM EAI.PEDIDO_PRETUP 
+  WHERE IDTRANSFER IN ('OT250623.1117.100001')
+  
+- Log de error:
+  [idTx=20257214139078169][actualizarFactura]
+  No existe para el cliente ZZ00040725 ningun maestro de clientes
+
+ACCIONES REALIZADAS:
+1. Validado que IDPEDIDO es correcto: ZZ0004072521
+2. Consultado tabla EAI.PEDIDO_PRETUP - registro existe
+3. Intentado relanzar - mismo error
+
+REQUERIMIENTO:
+Validar si cliente ZZ00040725 existe en SAP
+Si no existe, crear maestro de cliente
+Si existe con otro codigo, informar codigo correcto
+
+Adjunto: log completo, screenshot de query
+
+Saludos,
+[Tu nombre]
+Analista de Integracion
+```
+
+**3. Hacer seguimiento:**
+- Cada 2 horas para casos criticos
+- Cada 4 horas para casos altos
+- Cada 8 horas para casos medios
+
+### Indicadores de gestion (SLA):
+
+**SLA = Service Level Agreement (Acuerdo de Nivel de Servicio)**
+
+Son los tiempos maximos para resolver segun severidad:
+
+**CRITICO (P1):**
+- Impacto: Servicio caido, afecta a todos los clientes
+- Tiempo de respuesta: 15 minutos
+- Tiempo de resolucion: 4 horas
+- Ejemplo: WebLogic caido, nadie puede hacer recargas
+
+**ALTO (P2):**
+- Impacto: Funcionalidad importante afectada
+- Tiempo de respuesta: 30 minutos  
+- Tiempo de resolucion: 8 horas
+- Ejemplo: Programaciones de suspension fallando
+
+**MEDIO (P3):**
+- Impacto: Problema funcional menor
+- Tiempo de respuesta: 2 horas
+- Tiempo de resolucion: 24 horas
+- Ejemplo: Una linea smartwatch en estado unusable
+
+**BAJO (P4):**
+- Impacto: Consulta o mejora
+- Tiempo de respuesta: 4 horas
+- Tiempo de resolucion: 72 horas
+- Ejemplo: Reportar mejora en un proceso
+
+### Indicadores transversales:
+
+**Dispatcher (Despachador):**
+- Persona que distribuye los tickets
+- Asigna casos segun especialidad
+- Destraba casos bloqueados
+- Ejemplo: Carmencita distribuye entre Rocio y Royer
+
+**Indicador escalable:**
+- Metrica que mide si se escalo correctamente
+- % de casos escalados en tiempo
+- % de casos resueltos sin escalar
+- Tiempo promedio de resolucion
+
+---
+
+## 32. UMBRALES Y GRAFICOS EN AWS CLOUDWATCH
+
+### Que es AWS CloudWatch:
+
+**CloudWatch** es el servicio de monitoreo de Amazon Web Services (AWS).
+
+**Para que sirve:**
+- Monitorear servidores en la nube
+- Ver graficos de uso de CPU, memoria, disco
+- Crear alertas cuando algo supera un limite
+- Ver logs de aplicaciones
+
+### Que es un UMBRAL:
+
+**UMBRAL** es el limite maximo/minimo permitido antes de generar alerta.
+
+**Ejemplo:**
+- Umbral de CPU: 80%
+- Si el servidor llega a 85% de CPU → Se genera alerta
+
+**Tipos de umbrales:**
+
+**UMBRAL ALTO:**
+```
+CPU > 80% por mas de 5 minutos → ALERTA
+```
+
+**UMBRAL BAJO:**
+```
+Transacciones por segundo < 10 → ALERTA
+(Posible caida del servicio)
+```
+
+**UMBRAL DE CAMBIO:**
+```
+Errores aumentan 300% en 10 minutos → ALERTA
+```
+
+### Como ver graficos en CloudWatch:
+
+**1. Acceder a AWS Console:**
+```
+URL: https://console.aws.amazon.com
+Usuario: tu_usuario_aws
+Password: tu_password
+```
+
+**2. Ir a CloudWatch:**
+- Servicios → CloudWatch
+- O buscar "CloudWatch" en la barra superior
+
+**3. Ver metricas:**
+- Click en "Metrics" (Metricas)
+- Seleccionar categoria:
+  - EC2 (servidores)
+  - RDS (bases de datos)
+  - Lambda (funciones)
+  - Custom (personalizadas)
+
+**4. Crear grafico:**
+- Seleccionar metrica (ejemplo: CPUUtilization)
+- Seleccionar instancia (servidor especifico)
+- Ajustar periodo (1 min, 5 min, 1 hora)
+- Ver grafico generado
+
+### Metricas importantes para tu trabajo:
+
+**CPU Utilization:**
+- Uso de procesador
+- Normal: 20-60%
+- Alerta si > 80%
+- Critico si > 95%
+
+**Memory Utilization:**
+- Uso de memoria RAM
+- Normal: 40-70%
+- Alerta si > 85%
+- Critico si > 95%
+
+**Disk Space:**
+- Espacio en disco
+- Alerta si > 80% usado
+- Critico si > 90% usado
+
+**Network In/Out:**
+- Trafico de red entrante/saliente
+- Detecta picos anomalos
+- Identifica ataques DDoS
+
+**Application Metrics (Custom):**
+- Transacciones por segundo
+- Tiempo de respuesta promedio
+- Cantidad de errores
+- Programaciones exitosas vs fallidas
+
+### Como crear una alerta:
+
+**1. Ir a Alarms en CloudWatch**
+
+**2. Create Alarm**
+
+**3. Select Metric:**
+```
+EC2 → Per-Instance Metrics → CPUUtilization
+Seleccionar instancia: i-0123456789
+```
+
+**4. Configurar condicion:**
+```
+Tipo: Static (estatico)
+When: Greater than (mayor que)
+Threshold: 80
+```
+
+**5. Configurar periodo:**
+```
+Datapoints to alarm: 2 out of 2
+(Alerta si 2 de 2 puntos superan el umbral)
+
+Period: 5 minutes
+(Evaluar cada 5 minutos)
+```
+
+**6. Configurar accion:**
+```
+Notification: Send email to → tu_email@empresa.com
+Message: CPU superior a 80% en servidor WebLogic
+```
+
+**7. Crear alarma**
+
+### Interpretar graficos:
+
+**Grafico normal:**
+```
+CPU (%)
+100 |
+ 80 |              
+ 60 |    ___    ___
+ 40 | __/   \__/   \__
+ 20 |
+  0 |___________________
+     10am  12pm  2pm  4pm
+```
+Uso variable pero dentro de limites.
+
+**Grafico con problema:**
+```
+CPU (%)
+100 |        ________
+ 80 |    ___/        \
+ 60 |   /             
+ 40 | _/              
+ 20 |
+  0 |___________________
+     10am  12pm  2pm  4pm
+```
+CPU sostenida al 100% → Problema de rendimiento.
+
+**Grafico de error intermitente:**
+```
+Errors
+ 50 |    *
+ 40 |    *
+ 30 |    *  *
+ 20 |    *  *
+ 10 |*   *  *  *
+  0 |___________________
+     10am  12pm  2pm  4pm
+```
+Picos de errores → Investigar logs en esos horarios.
+
+---
+
+## 33. PRUEBAS DE QUERIES
+
+### Por que probar queries:
+
+**Antes de ejecutar en PRODUCCION, siempre prueba:**
+- En ambiente de DESARROLLO o QA
+- Con datos de prueba
+- Con ROWNUM <= 1 para limitar impacto
+
+**Riesgos de queries sin probar:**
+- Borrar datos incorrectos
+- Actualizar registros equivocados
+- Bloquear tablas en produccion
+- Generar errores masivos
+
+### Tipos de pruebas:
+
+**1. PRUEBA DE SINTAXIS:**
+
+Verificar que la query no tenga errores de escritura.
+
+```sql
+-- Query con error de sintaxis
+SELECT * FORM tabla WHERE id = 1;
+-- Error: FORM deberia ser FROM
+```
+
+**Como probar:**
+- Ejecutar en SQL Developer
+- Ver mensaje de error
+- Corregir antes de usar en produccion
+
+**2. PRUEBA DE RESULTADO:**
+
+Verificar que devuelve lo esperado.
+
+```sql
+-- Quiero ver solo 1 registro de prueba
+SELECT * FROM EAI.PEDIDO_PRETUP
+WHERE IDTRANSFER = 'OT250623.1117.100001'
+AND ROWNUM <= 1;
+```
+
+**Validar:**
+- Cantidad de registros (debe ser 1)
+- Campos correctos
+- Valores esperados
+
+**3. PRUEBA DE IMPACTO:**
+
+Verificar cuantos registros afectara un UPDATE/DELETE.
+
+```sql
+-- ANTES de hacer UPDATE, contar cuantos afectara
+SELECT COUNT(1) FROM EAI.PEDIDO_PRETUP
+WHERE ESTADO = 'PROCESO'
+AND TRUNC(FECHAREGISTRO) < TRUNC(SYSDATE) - 45;
+```
+
+**Resultado: 150 registros**
+
+Si esperabas 5 y te sale 150 → NO EJECUTES EL UPDATE, revisa la condicion.
+
+**4. PRUEBA CON ROLLBACK:**
+
+Hacer UPDATE pero deshacerlo para ver que pasaria.
+
+```sql
+-- Iniciar transaccion
+UPDATE EAI.PEDIDO_PRETUP
+SET ESTADO = 'ANULADO'
+WHERE ID = 718061;
+
+-- Ver el resultado
+SELECT * FROM EAI.PEDIDO_PRETUP WHERE ID = 718061;
+-- Muestra: ESTADO = 'ANULADO'
+
+-- DESHACER (no guardar)
+ROLLBACK;
+
+-- Ver nuevamente
+SELECT * FROM EAI.PEDIDO_PRETUP WHERE ID = 718061;
+-- Muestra: ESTADO = 'PROCESO' (volvio al estado original)
+```
+
+**IMPORTANTE:**
+- COMMIT = Guardar cambios (permanente)
+- ROLLBACK = Deshacer cambios (volver atras)
+
+### Metodologia de prueba:
+
+**Paso 1 - Hacer SELECT primero:**
+```sql
+-- Ver los registros ANTES de modificar
+SELECT ID, ESTADO, IDTRANSFER
+FROM EAI.PEDIDO_PRETUP
+WHERE IDTRANSFER IN ('OT250623.1117.100001', 'OT250614.1302.100001');
+```
+
+**Resultado:**
+```
+ID      | ESTADO  | IDTRANSFER
+718061  | PROCESO | OT250623.1117.100001
+718062  | PROCESO | OT250614.1302.100001
+```
+
+**Paso 2 - Convertir SELECT en UPDATE:**
+```sql
+UPDATE EAI.PEDIDO_PRETUP
+SET ESTADO = 'ANULADO'
+WHERE IDTRANSFER IN ('OT250623.1117.100001', 'OT250614.1302.100001');
+```
+
+**Paso 3 - Ver cuantos afectara:**
+Oracle dice: "2 rows updated"
+
+**Paso 4 - Validar con SELECT:**
+```sql
+SELECT ID, ESTADO, IDTRANSFER
+FROM EAI.PEDIDO_PRETUP
+WHERE IDTRANSFER IN ('OT250623.1117.100001', 'OT250614.1302.100001');
+```
+
+**Resultado:**
+```
+ID      | ESTADO  | IDTRANSFER
+718061  | ANULADO | OT250623.1117.100001
+718062  | ANULADO | OT250614.1302.100001
+```
+
+**Paso 5 - Si esta correcto, hacer COMMIT:**
+```sql
+COMMIT;
+```
+
+**Paso 6 - Si esta incorrecto, hacer ROLLBACK:**
+```sql
+ROLLBACK;
+```
+
+### Errores comunes al probar:
+
+**Error 1: No usar WHERE**
+```sql
+-- MAL - Actualiza TODA la tabla
+UPDATE EAI.PEDIDO_PRETUP
+SET ESTADO = 'ANULADO';
+
+-- BIEN - Solo registros especificos
+UPDATE EAI.PEDIDO_PRETUP
+SET ESTADO = 'ANULADO'
+WHERE ID IN (718061, 718062);
+```
+
+**Error 2: Condicion muy amplia**
+```sql
+-- MAL - Puede afectar miles de registros
+UPDATE USRACT.POSTT_SERVICIOPROG
+SET SERVC_ESTADO = 1
+WHERE SERVI_COD = 3;
+
+-- BIEN - Condicion mas especifica
+UPDATE USRACT.POSTT_SERVICIOPROG
+SET SERVC_ESTADO = 1
+WHERE SERVI_COD = 3
+AND SERVV_ID_EAI_SW = '20250121140532801'
+AND TRUNC(SERVD_FECHAPROG) = TRUNC(SYSDATE);
+```
+
+**Error 3: Hacer COMMIT sin validar**
+```sql
+-- MAL
+UPDATE tabla SET campo = valor WHERE condicion;
+COMMIT; -- Sin revisar si quedo bien
+
+-- BIEN
+UPDATE tabla SET campo = valor WHERE condicion;
+SELECT * FROM tabla WHERE condicion; -- Validar primero
+COMMIT; -- Confirmar solo si esta correcto
+```
+
+### Herramientas para pruebas:
+
+**SQL Developer - Modo Worksheet:**
+- Permite ejecutar queries sin commitear automaticamente
+- Muestra cantidad de filas afectadas
+- Permite hacer ROLLBACK facilmente
+
+**Explicar query (EXPLAIN PLAN):**
+```sql
+EXPLAIN PLAN FOR
+SELECT * FROM EAI.PEDIDO_PRETUP WHERE ESTADO = 'PROCESO';
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+```
+
+Te muestra:
+- Como Oracle ejecutara la query
+- Si usara indices
+- Costo estimado (tiempo)
+
+**Probar rendimiento:**
+```sql
+SET TIMING ON;
+
+SELECT COUNT(1) FROM EAI.PEDIDO_PRETUP
+WHERE TRUNC(FECHAREGISTRO) = TRUNC(SYSDATE);
+
+-- Muestra: Elapsed: 00:00:02.34
+```
+
+Si tarda mas de 5 segundos, optimizar la query.
+
+---
+
+## 34. POST VENTA
+
+### Que es Post Venta:
+
+**POST VENTA** es el area que atiende clientes que YA compraron un producto/servicio.
+
+**Diferencia con Ventas:**
+- **VENTA**: Cliente nuevo, contrata servicio
+- **POST VENTA**: Cliente existente, solicita cambios/soporte
+
+### Operaciones de Post Venta:
+
+**1. CAMBIOS DE PLAN:**
+- Cliente quiere mas datos
+- Cliente quiere menos minutos
+- Cambiar de prepago a postpago (migracion)
+
+**2. CAMBIOS DE TITULAR:**
+- Transferir linea a otra persona
+- Cambiar datos del propietario
+- Fusion de cuentas
+
+**3. SUSPENSION/REACTIVACION:**
+- Cliente viaja, quiere suspender temporalmente
+- Cliente pago, reactivar servicio
+
+**4. DESACTIVACION/BAJA:**
+- Cliente cancela el servicio
+- Dar de baja permanente
+
+**5. CAMBIO DE CICLO:**
+- Cliente quiere factura otro dia del mes
+- Cambio de fecha de corte
+
+**6. RECLAMOS:**
+- Facturacion incorrecta
+- Servicio no funciona
+- Cobros indebidos
+
+### Como impacta a Integracion:
+
+**Tu trabajo conecta:**
+- Sistema de Post Venta (SIAC, CRM)
+- Sistema de facturacion (BSCS, SAP)
+- Sistema tecnico (HLR, UDB)
+
+**Ejemplo de flujo:**
+
+**1. Cliente llama a Post Venta:**
+```
+"Quiero suspender mi linea por 30 dias porque viajo"
+```
+
+**2. Ejecutivo crea orden en SIAC:**
+```
+Orden: OT250625.1000.100001
+Tipo: Suspension temporal
+Linea: 51988588727
+Fecha programada: 25-01-2026
+```
+
+**3. SIAC envia a sistema de integracion (EAI):**
+```
+Se crea registro en USRACT.POSTT_SERVICIOPROG
+SERVI_COD = 3 (suspension)
+SERVC_ESTADO = 1 (pendiente)
+```
+
+**4. Tu servicio procesa automaticamente:**
+```
+- Lee la programacion
+- Valida datos
+- Llama a HLR para suspender
+- Actualiza BSCS
+- Marca como exitoso
+```
+
+**5. Si falla, tu intervienes:**
+```
+- Recibes alerta
+- Revisas el error
+- Corriges
+- Relanzas
+```
+
+### Tipos de tickets de Post Venta:
+
+**ORDEN DE TRABAJO (OT):**
+- Formato: OT + YYMMDD + HHMM + numero
+- Ejemplo: OT250625.1000.100001
+- Representa una solicitud de cliente
+
+**TICKET DE INCIDENCIA (INT):**
+- Formato: INT-NNN-NNNN
+- Ejemplo: INT-000-1234
+- Representa un problema/error
+
+**CASO DE SOPORTE:**
+- Cuando un proceso falla
+- Tu creas el caso
+- Documentas la solucion
+
+### SLA de Post Venta:
+
+**Cambio de plan:** 4 horas
+
+**Suspension/Reactivacion:** 2 horas
+
+**Cambio de titular:** 24 horas
+
+**Desactivacion:** 4 horas
+
+**Portabilidad:** 24 horas (por regulacion)
+
+Si no cumples el SLA:
+- Cliente puede reclamar
+- Empresa paga multa
+- Se registra como incumplimiento
+
+### Validaciones de Post Venta:
+
+Antes de procesar, validar:
+
+**1. Cliente existe:**
+```sql
+SELECT CUSTOMER_ID, CO_ID FROM TIM.PP_DATOS_CONTRATO
+WHERE DN_NUM = '51988588727'
+AND FEC_ESTADO = (SELECT MAX(FEC_ESTADO) 
+                  FROM TIM.PP_DATOS_CONTRATO 
+                  WHERE DN_NUM = '51988588727');
+```
+
+**2. Linea esta activa:**
+```sql
+SELECT CH_STATUS FROM TIM.PP_DATOS_CONTRATO
+WHERE DN_NUM = '51988588727';
+-- CH_STATUS debe ser 'a' (activo) o 's' (suspendido)
+```
+
+**3. No hay otra operacion pendiente:**
+```sql
+SELECT COUNT(1) FROM USRACT.POSTT_SERVICIOPROG
+WHERE SERVV_MSISDN = '988588727'
+AND SERVC_ESTADO IN (1, 2); -- Pendiente o En Proceso
+```
+
+Si devuelve > 0, hay otra operacion en curso, esperar.
+
+**4. Plan destino existe:**
+```sql
+-- Validar que el plan al que quiere migrar existe
+SELECT PLAN_CODE, PLAN_NAME FROM BSCS.PLAN_CATALOG
+WHERE PLAN_CODE = 'PLAN_ILIM_89';
+```
+
+---
+
+## 35. CYBERARK - GESTION DE CREDENCIALES
+
+### Que es CyberArk:
+
+**CyberArk** es un sistema de gestion segura de contraseñas y credenciales.
+
+**Para que sirve:**
+- Almacenar contraseñas de forma segura
+- Rotar contraseñas automaticamente
+- Auditar quien uso que credencial
+- Evitar compartir contraseñas en texto plano
+
+### Por que se usa:
+
+**ANTES (sin CyberArk):**
+- Contraseñas en archivos .txt
+- Contraseñas compartidas por email
+- Misma contraseña por años
+- No se sabe quien la uso
+
+**DESPUES (con CyberArk):**
+- Contraseñas encriptadas
+- Cada usuario pide la contraseña cuando la necesita
+- Contraseñas cambian automaticamente cada 30 dias
+- Log completo de uso
+
+### Como funciona:
+
+**1. Solicitar credencial:**
+```
+Usuario → CyberArk → Solicita credencial de "BSCS_ADMIN"
+CyberArk → Valida que usuario tiene permiso
+CyberArk → Devuelve contraseña actual
+```
+
+**2. Usar credencial:**
+```
+Usuario se conecta a BSCS con la contraseña
+CyberArk registra: Fecha, Hora, Usuario, Sistema
+```
+
+**3. Rotacion automatica:**
+```
+Cada 30 dias, CyberArk:
+- Genera nueva contraseña aleatoria
+- Actualiza en el sistema (BSCS, SAP, Oracle)
+- Actualiza en su base de datos
+```
+
+### Como usar CyberArk:
+
+**Paso 1 - Acceder al portal:**
+```
+URL: https://cyberark.empresa.com
+Usuario: tu_usuario_corporativo
+Password: tu_password_corporativo
+```
+
+**Paso 2 - Buscar credencial:**
+```
+Search: "BSCS"
+Resultados:
+- BSCS_ADMIN
+- BSCS_READONLY  
+- BSCS_INTEGRATION
+```
+
+**Paso 3 - Solicitar acceso:**
+```
+Click en "BSCS_ADMIN"
+Click en "Request Access"
+Reason: "Ejecutar mantenimiento de contratos"
+Duration: 2 hours
+```
+
+**Paso 4 - Aprobar solicitud:**
+```
+Si requiere aprobacion:
+- Tu jefe recibe notificacion
+- Aprueba o rechaza
+- Tu recibes la credencial
+```
+
+**Paso 5 - Ver credencial:**
+```
+Click en "Show Password"
+Password: X$9mK!2pL@4n
+Copy password (se copia al portapapeles)
+```
+
+**Paso 6 - Conectar:**
+```
+Abrir SQL Developer
+User: BSCS_ADMIN
+Password: Pegar (Ctrl+V)
+```
+
+**Paso 7 - Devolver credencial:**
+```
+Cuando termines:
+Click en "Check In"
+La credencial se revoca automaticamente
+```
+
+### Tipos de acceso:
+
+**PERMANENT ACCESS:**
+- Tu usuario siempre puede ver esa credencial
+- Para sistemas que usas diariamente
+
+**TEMPORARY ACCESS:**
+- Solicitas acceso temporal (1-8 horas)
+- Para tareas especificas
+
+**ONE-TIME PASSWORD:**
+- Password de un solo uso
+- Se invalida despues de usarlo
+
+### Politicas de seguridad:
+
+**Rotacion de contraseñas:**
+- Cada 30 dias (standard)
+- Cada 90 dias (bajo riesgo)
+- Cada 7 dias (critico - produccion)
+
+**Complejidad:**
+- Minimo 12 caracteres
+- Mayusculas, minusculas, numeros, simbolos
+- No puede contener nombre de usuario
+
+**Auditoria:**
+- Cada uso queda registrado
+- Reportes mensuales de accesos
+- Alertas si hay uso fuera de horario
+
+### Cuentas comunes en CyberArk:
+
+**Para bases de datos:**
+- ORACLE_EAI_ADMIN
+- ORACLE_BSCS_READONLY
+- ORACLE_IOT_INTEGRATION
+
+**Para servidores:**
+- WEBLOGIC_ADMIN (usuario weblogic)
+- ROOT_SERVER_172_19_67_49
+- USRCBIO_SERVER
+
+**Para aplicaciones:**
+- SAP_INTEGRATION_USER
+- HLR_API_USER
+- SIAC_ADMIN
+
+### Buenas practicas:
+
+**1. Nunca guardar contraseñas:**
+- No las anotes
+- No las copies a archivos
+- No las compartas por chat
+
+**2. Pedir solo lo necesario:**
+- Si solo necesitas leer: pide cuenta READONLY
+- Si necesitas escribir: pide cuenta ADMIN
+
+**3. Devolver cuando termines:**
+- No dejes sesiones abiertas
+- Check-in en CyberArk cuando acabes
+
+**4. Reportar problemas:**
+- Si la contraseña no funciona
+- Si no tienes acceso a una cuenta que necesitas
+- Si ves uso sospechoso
+
+---
+
+## 36. ELASTIC (ELK STACK) - BUSQUEDA DE LOGS
+
+### Que es Elastic:
+
+**Elastic** (o ELK Stack) es una plataforma para:
+- **E**lasticsearch: Motor de busqueda
+- **L**ogstash: Recolector de logs
+- **K**ibana: Visualizador grafico
+
+**Para que sirve:**
+- Buscar en millones de lineas de log en segundos
+- Crear graficos de errores/transacciones
+- Hacer seguimiento de transacciones (trazabilidad)
+- Detectar patrones anomalos
+
+### Como funciona:
+
+**1. Logstash recolecta logs:**
+```
+Servidores generan logs →
+Logstash lee archivos →
+Procesa y estructura →
+Envia a Elasticsearch
+```
+
+**2. Elasticsearch indexa:**
+```
+Recibe logs estructurados →
+Los indexa (como Google indexa paginas web) →
+Permite busqueda rapida
+```
+
+**3. Kibana visualiza:**
+```
+Usuario busca en Kibana →
+Kibana consulta Elasticsearch →
+Muestra resultados graficamente
+```
+
+### Como buscar en Kibana:
+
+**Paso 1 - Acceder:**
+```
+URL: https://kibana.empresa.com
+Usuario: tu_usuario
+Password: tu_password
+```
+
+**Paso 2 - Seleccionar indice:**
+```
+Index pattern: logstash-eai-*
+Time range: Last 15 minutes
+```
+
+**Paso 3 - Buscar por ID de transaccion:**
+```
+Buscar: "20257214139078169"
+```
+
+**Resultado:**
+```
+[02-07-2025 14:30:14] [idTx=20257214139078169] Inicio de consultaPedidos
+[02-07-2025 14:30:15] [idTx=20257214139078169] Pedido encontrado: ZZ0004072521
+[02-07-2025 14:30:16] [idTx=20257214139078169] Error al actualizar factura
+[02-07-2025 14:30:16] [idTx=20257214139078169] No existe el cliente
+```
+
+Ves TODA la traza de esa transaccion.
+
+**Paso 4 - Filtrar por nivel:**
+```
+Filtros:
+- level: ERROR
+- service: actualizarFactura
+- idTx: 20257214139078169
+```
+
+**Paso 5 - Exportar:**
+```
+Export → CSV
+Descargar para adjuntar en ticket
+```
+
+### Busquedas avanzadas:
+
+**Buscar errores de hoy:**
+```
+level: ERROR AND @timestamp: [now-24h TO now]
+```
+
+**Buscar por numero de linea:**
+```
+msisdn: "51988588727"
+```
+
+**Buscar por servicio:**
+```
+service: "suspension" AND level: ERROR
+```
+
+**Buscar por rango de tiempo:**
+```
+@timestamp: [2026-01-25T10:00:00 TO 2026-01-25T11:00:00]
+AND idTx: 20257214*
+```
+
+**Buscar patron:**
+```
+message: *"No existe el cliente"*
+```
+
+### Crear visualizaciones:
+
+**Grafico de errores por hora:**
+```
+Visualization type: Line chart
+Y-axis: Count
+X-axis: @timestamp (per hour)
+Filter: level: ERROR
+```
+
+**Grafico de top errores:**
+```
+Visualization type: Pie chart
+Slice by: message.keyword
+Filter: level: ERROR
+Time: Last 24 hours
+```
+
+**Dashboard de monitoreo:**
+```
+Panel 1: Total transacciones (Counter)
+Panel 2: Errores por servicio (Bar chart)
+Panel 3: Tiempo de respuesta promedio (Line chart)
+Panel 4: Top 10 errores (Table)
+```
+
+### Campos importantes:
+
+**timestamp:** Fecha y hora del log
+
+**level:** ERROR, WARN, INFO, DEBUG
+
+**service:** Nombre del servicio (suspension, migracion, etc.)
+
+**idTx:** ID de transaccion
+
+**msisdn:** Numero de telefono
+
+**message:** Mensaje completo del log
+
+**host:** Servidor que genero el log
+
+**application:** Aplicacion (EAI, CBIO, IOT)
+
+### Casos de uso:
+
+**Caso 1: Seguir una transaccion completa**
+```
+1. Cliente reporta: "Mi suspension no funciono"
+2. Te dan la linea: 51988588727
+3. Buscas en Kibana: msisdn: "51988588727" AND service: "suspension"
+4. Encuentras el idTx: 20257214139078169
+5. Buscas por idTx y ves todo el flujo
+6. Identificas el error exacto
+```
+
+**Caso 2: Detectar patron de errores**
+```
+1. Recibes 10 alertas de smartwatch
+2. Buscas: service: "iot" AND level: ERROR AND @timestamp: [now-1h TO now]
+3. Ves que todos tienen el mismo error: "UDBConnector timeout"
+4. Conclusión: Problema en UDB, no en cada linea individual
+5. Escalas a equipo UDB
+```
+
+**Caso 3: Validar si un proceso ejecuto**
+```
+1. Ejecutaste relanzamiento: sh VVS_SH_ACTUALIZARFACTURA
+2. Buscas: service: "actualizarFactura" AND @timestamp: [now-5m TO now]
+3. Ves los logs de ejecucion
+4. Confirmas que proceso correctamente
+```
+
+---
+
+## 37. DYNATRACE - MONITOREO DE RENDIMIENTO
+
+### Que es Dynatrace:
+
+**Dynatrace** es una plataforma de APM (Application Performance Monitoring).
+
+**Para que sirve:**
+- Monitorear rendimiento de aplicaciones
+- Detectar cuellos de botella
+- Ver toda la traza de una transaccion (end-to-end)
+- Diagnosticar problemas de lentitud
+
+### Diferencia con CloudWatch y Elastic:
+
+**CloudWatch:**
+- Monitorea infraestructura (CPU, memoria, disco)
+- Nivel de servidor
+
+**Elastic:**
+- Busca en logs
+- Nivel de aplicacion (que dice el codigo)
+
+**Dynatrace:**
+- Monitorea flujo completo de transacciones
+- Nivel de negocio (que experimenta el usuario)
+- Ve base de datos, servicios web, servidores, todo junto
+
+### Como funciona:
+
+**OneAgent instalado en servidores:**
+```
+Servidor WebLogic → OneAgent captura:
+- Tiempo de respuesta de cada servicio
+- Llamadas a base de datos
+- Llamadas a APIs externas
+- Errores y excepciones
+```
+
+**Dashboard central:**
+```
+Dynatrace recibe datos →
+Correlaciona toda la informacion →
+Muestra mapa completo de la transaccion
+```
+
+### Como usar Dynatrace:
+
+**Paso 1 - Acceder:**
+```
+URL: https://dynatrace.empresa.com
+Usuario: tu_usuario
+Password: tu_password
+```
+
+**Paso 2 - Ver panorama general (Smartscape):**
+```
+Menu: Smartscape
+```
+
+Ves mapa de todos los sistemas:
+```
+SIAC → EAI Services → BSCS Database
+           ↓
+         SAP API
+           ↓
+        HLR Service
+```
+
+**Paso 3 - Buscar transaccion especifica:**
+```
+Menu: Diagnostics → Distributed traces
+Filter: Service name = "SuspensionService"
+Time: Last 2 hours
+```
+
+**Resultado:**
+```
+10:30:15 - SuspensionService - 2.3s - SUCCESS
+10:31:22 - SuspensionService - 45s - ERROR
+10:32:10 - SuspensionService - 1.8s - SUCCESS
+```
+
+**Paso 4 - Ver detalle de transaccion lenta:**
+```
+Click en transaccion de 45s
+```
+
+**Dynatrace muestra:**
+```
+SuspensionService (total: 45s)
+├─ Query BSCS (0.5s)
+├─ Call HLR API (43s) ← AQUI ESTA EL PROBLEMA
+└─ Update BSCS (1.5s)
+```
+
+Identificas que HLR API tardo 43 segundos.
+
+### Analisis de problemas:
+
+**Problema 1: Servicio lento**
+
+**Sintoma en Dynatrace:**
+```
+Tiempo de respuesta promedio: 500ms
+Pico: 15 segundos
+```
+
+**Click en el pico:**
+```
+Request: POST /suspension
+Duration: 15s
+  ├─ Code execution: 0.1s
+  ├─ Database query: 14.8s ← PROBLEMA
+  └─ Response: 0.1s
+```
+
+**Query especifico:**
+```
+SELECT * FROM BSCS.CONTRACT
+WHERE STATUS = 'A'
+-- Esta query tarda 14.8s (no tiene indice)
+```
+
+**Solucion:** Crear indice en campo STATUS
+
+**Problema 2: Tasa de errores aumenta**
+
+**Dashboard muestra:**
+```
+Errores por minuto:
+10am: 2 errores/min
+11am: 45 errores/min ← Anomalia
+12pm: 3 errores/min
+```
+
+**Click en periodo 11am:**
+```
+Error principal: NullPointerException
+Origen: SAPIntegrationService
+Causa: SAP no responde (timeout)
+```
+
+**Correlacion con otros sistemas:**
+Dynatrace muestra que SAP tambien tiene alertas en ese horario.
+
+**Solucion:** Coordinar con equipo SAP
+
+### Alertas automaticas:
+
+**Dynatrace detecta anomalias:**
+
+**Alerta: "Response time degradation"**
+```
+Service: MigracionService
+Baseline: 2s promedio
+Current: 8s promedio (+300%)
+Time: 2026-01-25 14:30
+```
+
+**Accion:**
+```
+1. Revisar Dynatrace: ver que componente se degrade
+2. Revisar Elastic: buscar errores en logs
+3. Revisar CloudWatch: ver si CPU/memoria estan altas
+```
+
+**Alerta: "Error rate increase"**
+```
+Service: DesactivacionService
+Baseline: 0.1% errores
+Current: 15% errores
+Affected users: 120
+```
+
+**Accion:**
+```
+1. Ver error especifico en Dynatrace
+2. Si afecta a muchos usuarios: escalar inmediatamente
+3. Si es error conocido: aplicar fix conocido
+```
+
+### Metricas clave:
+
+**APDEX (Application Performance Index):**
+- Mide satisfaccion del usuario
+- 0.0 - 1.0
+- > 0.9: Excelente
+- 0.7 - 0.9: Bueno
+- < 0.7: Problema
+
+**Response Time:**
+- Tiempo que tarda en responder
+- P50: 50% de requests tardan menos de X
+- P95: 95% de requests tardan menos de Y
+- P99: 99% de requests tardan menos de Z
+
+**Throughput:**
+- Transacciones por segundo
+- Normal: 100 tps
+- Pico: 500 tps
+- Si baja mucho: posible caida
+
+**Error Rate:**
+- % de transacciones con error
+- Normal: < 1%
+- Alerta: > 5%
+- Critico: > 10%
+
+---
+
+## 38. LARGE DATA EDITOR (CILO) - SEGUIMIENTO DE TRAZAS
+
+### Que es Large Data Editor:
+
+Herramienta para abrir y analizar archivos de log muy grandes.
+
+**Problema:**
+- Logs de produccion: 2-5 GB
+- Notepad no puede abrir archivos > 500 MB
+- Sublime Text se congela con archivos grandes
+
+**Solucion:**
+- Large Data Editor (LDE) o CILO
+- Puede abrir archivos de 10+ GB
+- Busqueda rapida
+- No carga todo en memoria
+
+### Como instalar:
+
+**Opcion 1: Large File Editor**
+```
+Descargar: http://www.getfreefile.com/large-file-editor
+Instalar: Siguiente, Siguiente, Finalizar
+```
+
+**Opcion 2: EmEditor (pago pero mejor)**
+```
+URL: https://www.emeditor.com
+Version trial: 30 dias gratis
+```
+
+**Opcion 3: glogg (gratis y liviano)**
+```
+URL: https://glogg.bonnefon.org
+Portable, no requiere instalacion
+```
+
+### Como usar para seguir trazas:
+
+**Paso 1 - Descargar log del servidor:**
+```bash
+# Conectar por SFTP (WinSCP)
+Servidor: 172.19.67.49
+Ruta: /opt/oracle/domains/EAI/servers/wls01/logs/
+Archivo: server_20260125.log (2.3 GB)
+Descargar a: C:\Logs\
+```
+
+**Paso 2 - Abrir con Large Data Editor:**
+```
+File → Open Large File
+Seleccionar: C:\Logs\server_20260125.log
+Esperar indexacion (30 segundos)
+```
+
+**Paso 3 - Buscar ID de transaccion:**
+```
+Ctrl+F (Find)
+Search: "20257214139078169"
+Find All
+```
+
+**Resultado:**
+```
+Line 1,234,567: [idTx=20257214139078169] Inicio suspension
+Line 1,234,580: [idTx=20257214139078169] Query BSCS ejecutado
+Line 1,234,595: [idTx=20257214139078169] Error: Timeout en HLR
+Line 1,234,600: [idTx=20257214139078169] Rollback transaccion
+```
+
+**Paso 4 - Exportar solo esas lineas:**
+```
+Filter: "20257214139078169"
+Export filtered → traza_completa.txt
+```
+
+**Paso 5 - Analizar flujo:**
+
+**Inicio:**
+```
+[14:30:14.123] [idTx=20257214139078169] Recibido request suspension
+[14:30:14.125] MSISDN: 51988588727
+[14:30:14.126] FECHA_PROG: 2026-01-25
+```
+
+**Validaciones:**
+```
+[14:30:14.200] Consultando estado en BSCS
+[14:30:14.450] Estado: ACTIVO - OK para suspender
+[14:30:14.451] Validando fecha programacion
+[14:30:14.452] Fecha valida: SI
+```
+
+**Ejecucion:**
+```
+[14:30:14.500] Llamando HLR API
+[14:30:14.501] Endpoint: http://hlr.empresa.com/suspend
+[14:30:14.502] Timeout configurado: 30s
+[14:30:44.503] ERROR: Read timeout after 30s
+```
+
+**Error:**
+```
+[14:30:44.504] HLR no responde
+[14:30:44.505] Iniciando rollback
+[14:30:44.600] Rollback completado
+[14:30:44.601] Transaccion marcada como ERROR
+```
+
+**Conclusion:**
+HLR API tiene timeout de 30s, tardo mas y fallo.
+
+### Patrones de busqueda:
+
+**Buscar todos los errores:**
+```
+Regex: \[ERROR\]|\[EXCEPTION\]
+```
+
+**Buscar por linea telefonica:**
+```
+Search: "51988588727"
+```
+
+**Buscar por fecha/hora especifica:**
+```
+Search: "2026-01-25 14:30"
+```
+
+**Buscar llamadas a base de datos:**
+```
+Regex: SELECT.*FROM|UPDATE.*SET|DELETE.*FROM
+```
+
+**Buscar timeouts:**
+```
+Search: "timeout" (case insensitive)
+```
+
+### Analisis de performance:
+
+**Buscar queries lentas:**
+```
+Regex: \[SQL\].*\[(\d{4,})\s*ms\]
+```
+
+Encuentra queries que tardaron > 1000ms (4 digitos)
+
+**Ejemplo encontrado:**
+```
+[14:30:15.123] [SQL] SELECT * FROM BSCS.CONTRACT WHERE CO_ID=123 [4523 ms]
+```
+
+4.5 segundos → Query lenta, optimizar.
+
+### Comparar dos archivos de log:
+
+**Caso:** Relanzaste un proceso, quieres comparar
+
+**Log 1:** Primera ejecucion (fallo)
+**Log 2:** Segunda ejecucion (relanzamiento)
+
+**WinMerge (gratuito):**
+```
+Descargar: https://winmerge.org
+Abrir WinMerge
+File → Open
+Left: server_14-30.log
+Right: server_15-45.log
+```
+
+**Diferencias marcadas en colores:**
+- Verde: Solo en archivo 2 (nuevo)
+- Rojo: Solo en archivo 1 (viejo)
+- Amarillo: Diferente en ambos
+
+Identificas que cambio entre ejecuciones.
+
+---
+
+## 39. GRAFICOS EN GOOGLE SHEETS - REPORTES
+
+### Por que hacer graficos:
+
+**Para reportes diarios/semanales:**
+- Mostrar cantidad de casos resueltos
+- % de exito vs fallas
+- Tiempo promedio de resolucion
+- Tendencias (mejora o empeora)
+
+### Conectar Sheets con datos:
+
+**Opcion 1: Export manual desde Oracle**
+```sql
+SELECT 
+  TRUNC(SERVD_FECHA_REG) AS FECHA,
+  COUNT(CASE WHEN SERVC_ESTADO = 3 THEN 1 END) AS EXITOSOS,
+  COUNT(CASE WHEN SERVC_ESTADO = 4 THEN 1 END) AS ERRORES,
+  COUNT(1) AS TOTAL
+FROM USRACT.POSTT_SERVICIOPROG
+WHERE SERVD_FECHA_REG >= TRUNC(SYSDATE) - 30
+GROUP BY TRUNC(SERVD_FECHA_REG)
+ORDER BY 1;
+```
+
+Exportar a CSV → Importar en Sheets
+
+**Opcion 2: Google Sheets + Apps Script**
+
+Conectar directamente a Oracle (requiere configuracion):
+```javascript
+function obtenerDatos() {
+  var conn = Jdbc.getConnection("jdbc:oracle:thin:@IP:PORT:SID", "user", "pass");
+  var stmt = conn.createStatement();
+  var rs = stmt.executeQuery("SELECT * FROM tabla");
+  
+  while (rs.next()) {
+    // Procesar datos
+  }
+  rs.close();
+  stmt.close();
+  conn.close();
+}
+```
+
+### Tipos de graficos:
+
+**1. LINEA - Tendencia en el tiempo**
+
+**Datos:**
+```
+FECHA       | EXITOSOS | ERRORES
+2026-01-20  | 450      | 25
+2026-01-21  | 480      | 18
+2026-01-22  | 520      | 12
+2026-01-23  | 490      | 30
+2026-01-24  | 510      | 15
+```
+
+**Grafico de linea:**
+- Eje X: FECHA
+- Eje Y: EXITOSOS y ERRORES (dos lineas)
+
+**Como crear:**
+```
+1. Seleccionar datos (A1:C6)
+2. Insert → Chart
+3. Chart type: Line chart
+4. Customize:
+   - Title: "Procesos Diarios - Ultima Semana"
+   - X-axis: Fecha
+   - Series 1: Exitosos (color verde)
+   - Series 2: Errores (color rojo)
+```
+
+**2. BARRA - Comparar categorias**
+
+**Datos:**
+```
+SERVICIO       | CANTIDAD
+Suspension     | 120
+Reactivacion   | 95
+Migracion      | 45
+Cambio Plan    | 80
+Desactivacion  | 60
+```
+
+**Grafico de barras:**
+- Eje X: SERVICIO
+- Eje Y: CANTIDAD
+
+**3. PIE - Distribucion porcentual**
+
+**Datos:**
+```
+ESTADO    | CANTIDAD
+Exitoso   | 850
+Error     | 120
+Pendiente | 30
+```
+
+**Grafico circular:**
+- Exitoso: 85%
+- Error: 12%
+- Pendiente: 3%
+
+**4. COMBO - Mezcla linea y barra**
+
+**Datos:**
+```
+FECHA       | TOTAL | % EXITO
+2026-01-20  | 475   | 94.7%
+2026-01-21  | 498   | 96.4%
+2026-01-22  | 532   | 97.7%
+```
+
+**Grafico combo:**
+- Barras: TOTAL (eje Y izquierdo)
+- Linea: % EXITO (eje Y derecho)
+
+### Formulas utiles:
+
+**Calcular % de exito:**
+```
+=B2/(B2+C2)*100
+```
+Donde B2=EXITOSOS, C2=ERRORES
+
+**Contar casos por estado:**
+```
+=COUNTIF(A:A,"EXITOSO")
+```
+
+**Promedio de tiempo de resolucion:**
+```
+=AVERAGE(B2:B100)
+```
+
+**Sumar total del mes:**
+```
+=SUMIF(A:A,">=2026-01-01",B:B)
+```
+
+**Conditional formatting:**
+```
+Si % exito < 90% → Color rojo
+Si % exito >= 95% → Color verde
+Si % exito entre 90-95% → Color amarillo
+```
+
+### Dashboard automatizado:
+
+**Template recomendado:**
+
+**Hoja 1: Datos brutos**
+- Exportacion de Oracle
+- No tocar manualmente
+
+**Hoja 2: Calculos**
+- Formulas que procesan datos
+- Pivots, SUMIFs, COUNTIFs
+
+**Hoja 3: Dashboard**
+- Solo graficos
+- Actualiza automaticamente
+
+**Ejemplo practico:**
+
+**Datos (Sheet 1):**
+```
+| FECHA      | TICKET      | ESTADO  | TIEMPO_MIN |
+|------------|-------------|---------|------------|
+| 2026-01-25 | INT-000-123 | EXITOSO | 45         |
+| 2026-01-25 | INT-000-124 | ERROR   | 120        |
+| 2026-01-25 | INT-000-125 | EXITOSO | 30         |
+```
+
+**Calculos (Sheet 2):**
+```
+Total hoy: =COUNTIF(Datos!A:A,TODAY())
+Exitosos: =COUNTIFS(Datos!A:A,TODAY(),Datos!C:C,"EXITOSO")
+% Exito: =B2/B1*100
+Tiempo promedio: =AVERAGEIF(Datos!C:C,"EXITOSO",Datos!D:D)
+```
+
+**Dashboard (Sheet 3):**
+```
+┌─────────────────────────────────────┐
+│ DASHBOARD INTEGRACION - HOY         │
+├─────────────────────────────────────┤
+│ Total casos: 45                     │
+│ Exitosos: 39 (87%)                  │
+│ Errores: 6 (13%)                    │
+│ Tiempo prom: 52 minutos             │
+├─────────────────────────────────────┤
+│ [Grafico de linea: ultimos 7 dias] │
+│ [Grafico pie: distribucion estados] │
+│ [Grafico barra: casos por servicio] │
+└─────────────────────────────────────┘
+```
+
+### Compartir reportes:
+
+**Opcion 1: Compartir link**
+```
+File → Share
+Permisos: View only (solo lectura)
+Copiar link → Enviar por email
+```
+
+**Opcion 2: Programar email automatico**
+```
+Extensions → Apps Script
+Codigo:
+function enviarReporte() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var hoja = ss.getSheetByName("Dashboard");
+  var pdf = hoja.getAs('application/pdf');
+  
+  MailApp.sendEmail({
+    to: "jefe@empresa.com",
+    subject: "Reporte Diario Integracion",
+    body: "Adjunto reporte del dia",
+    attachments: [pdf]
+  });
+}
+```
+
+Programar trigger: Todos los dias a las 6pm
+
+---
+
+## 40. DATAPOWER GATEWAY - GATEWAY DE SERVICIOS
+
+### Que es DataPower:
+
+**IBM DataPower Gateway** es un dispositivo (appliance) que actua como intermediario entre sistemas.
+
+**Funcion principal:**
+- Recibe peticiones de un sistema (SIAC)
+- Valida, transforma, enruta
+- Envia a otro sistema (BSCS, SAP, HLR)
+- Devuelve respuesta
+
+**Por que se usa:**
+- Seguridad (firewall de aplicacion)
+- Transformacion de mensajes (XML ↔ JSON)
+- Enrutamiento inteligente
+- Auditoria de transacciones
+
+### Como funciona:
+
+**Flujo sin DataPower:**
+```
+SIAC → BSCS (conexion directa)
+```
+Problemas:
+- SIAC debe conocer IP/puerto de BSCS
+- Si BSCS cambia, hay que reconfigurar SIAC
+- No hay auditoria centralizada
+
+**Flujo con DataPower:**
+```
+SIAC → DataPower → BSCS
+```
+Ventajas:
+- SIAC solo conoce DataPower
+- DataPower enruta al backend correcto
+- Log centralizado en DataPower
+
+### Componentes:
+
+**Frontend Handler:**
+- Recibe peticiones
+- Protocolo: HTTP, HTTPS, MQ, FTP
+
+**Processing Policy:**
+- Que hacer con el mensaje
+- Validar, transformar, enrutar
+
+**Backend:**
+- A donde enviar
+- BSCS, SAP, HLR, etc.
+
+### Ejemplo practico:
+
+**Caso:** Suspension de linea
+
+**1. SIAC envia request:**
+```xml
+POST https://datapower.empresa.com/suspension
+<suspension>
+  <msisdn>51988588727</msisdn>
+  <fecha>2026-01-25</fecha>
+</suspension>
+```
+
+**2. DataPower recibe (Frontend Handler):**
+```
+Puerto: 8443 (HTTPS)
+Certificado: Valido ✓
+Autenticacion: Basic Auth ✓
+```
+
+**3. DataPower procesa (Policy):**
+
+**a) Validar esquema:**
+```
+¿XML bien formado? SI
+¿Tiene campo msisdn? SI
+¿Fecha es valida? SI
+```
+
+**b) Transformar:**
+```xml
+<!-- SIAC envia formato simple -->
+<suspension>
+  <msisdn>51988588727</msisdn>
+</suspension>
+
+<!-- DataPower transforma a formato BSCS -->
+<BSCS_SuspensionRequest>
+  <header>
+    <timestamp>2026-01-25T10:30:00</timestamp>
+    <system>SIAC</system>
+  </header>
+  <body>
+    <DN_NUM>51988588727</DN_NUM>
+    <ACTION>SUSPEND</ACTION>
+  </body>
+</BSCS_SuspensionRequest>
+```
+
+**c) Enrutar:**
+```
+Destino: http://bscs.empresa.com:8080/api/suspension
+Metodo: POST
+Headers: Content-Type: text/xml
+```
+
+**4. BSCS procesa y responde:**
+```xml
+<BSCS_Response>
+  <status>SUCCESS</status>
+  <code>0</code>
+</BSCS_Response>
+```
+
+**5. DataPower transforma respuesta:**
+```xml
+<!-- BSCS responde formato complejo -->
+<BSCS_Response>
+  <status>SUCCESS</status>
+</BSCS_Response>
+
+<!-- DataPower simplifica para SIAC -->
+<response>
+  <resultado>OK</resultado>
+</response>
+```
+
+**6. SIAC recibe:**
+```xml
+<response>
+  <resultado>OK</resultado>
+</response>
+```
+
+### Logs en DataPower:
+
+**Como ver logs:**
+
+**Opcion 1: Consola Web**
+```
+URL: https://datapower-admin.empresa.com:9090
+Login: admin
+Password: admin_password
+
+Status → Logs → System Logs
+```
+
+**Opcion 2: SFTP**
+```
+Conectar a DataPower por SFTP
+Directorio: /var/log
+Archivos:
+- default.log (general)
+- webgui.log (accesos consola)
+- service.log (transacciones)
+```
+
+**Contenido del log:**
+```
+[2026-01-25 10:30:14] [Suspension_MP] Frontend request received
+[2026-01-25 10:30:14] INPUT: <suspension><msisdn>51988588727</msisdn></suspension>
+[2026-01-25 10:30:14] Schema validation: PASS
+[2026-01-25 10:30:14] Transform applied: SIAC_to_BSCS.xsl
+[2026-01-25 10:30:14] Backend call: http://bscs.empresa.com:8080/api/suspension
+[2026-01-25 10:30:15] Backend response: SUCCESS
+[2026-01-25 10:30:15] OUTPUT: <response><resultado>OK</resultado></response>
+```
+
+### Casos de error en DataPower:
+
+**Error 1: Backend no responde**
+
+**Log:**
+```
+[ERROR] Backend timeout after 30s
+[ERROR] Target: http://bscs.empresa.com:8080/api/suspension
+```
+
+**Accion:**
+```
+1. Validar si BSCS esta arriba: ping bscs.empresa.com
+2. Validar puerto: telnet bscs.empresa.com 8080
+3. Si no responde: escalar a equipo BSCS
+```
+
+**Error 2: Transformacion falla**
+
+**Log:**
+```
+[ERROR] XSLT transformation failed
+[ERROR] Variable 'fecha' not found in input
+```
+
+**Accion:**
+```
+1. Validar request de origen (SIAC)
+2. Si falta campo obligatorio: rechazar request
+3. Si DataPower espera campo que ya no existe: actualizar XSLT
+```
+
+**Error 3: Certificado SSL expirado**
+
+**Log:**
+```
+[ERROR] SSL handshake failed
+[ERROR] Certificate expired on 2026-01-20
+```
+
+**Accion:**
+```
+1. Renovar certificado
+2. Cargar nuevo certificado en DataPower
+3. Reiniciar servicio
+```
+
+### Comandos utiles (CLI):
+
+**Conectar por SSH:**
+```bash
+ssh admin@datapower.empresa.com
+Password: ******
+```
+
+**Ver estado de servicio:**
+```
+show service-status
+```
+
+**Ver version de firmware:**
+```
+show version
+```
+
+**Ver uso de memoria:**
+```
+show system
+```
+
+**Ver estadisticas de transacciones:**
+```
+show statistics
+```
+
+**Exportar configuracion:**
+```
+export config://
+```
+
+### Tu rol con DataPower:
+
+**NO configuras DataPower directamente** (lo hace equipo de infraestructura)
+
+**Tu rol:**
+1. Ver logs cuando hay errores
+2. Identificar si el problema es:
+   - Frontend (SIAC envia mal)
+   - DataPower (transformacion falla)
+   - Backend (BSCS no responde)
+3. Escalar al equipo correcto
+
+**Ejemplo de escalamiento:**
+
+**Error encontrado:**
+```
+DataPower log: Backend BSCS returning HTTP 500
+```
+
+**Tu analisis:**
+```
+1. Request de SIAC: Correcto ✓
+2. DataPower transforma: Correcto ✓
+3. BSCS responde 500: ERROR ← Problema en BSCS
+```
+
+**Escalamiento:**
+```
+Para: Equipo BSCS
+Asunto: Error 500 en API suspension
+Detalle: DataPower envia request correcto pero BSCS responde 500
+Evidencia: Log de DataPower adjunto
+Request enviado: [XML del request]
+Response recibido: [HTTP 500 Internal Server Error]
+```
+
+---
+
+## RESUMEN DE HERRAMIENTAS
+
+**MONITOREAMIENTO:**
+- **CloudWatch**: Infraestructura (CPU, RAM, disco)
+- **Dynatrace**: Rendimiento de aplicaciones (end-to-end)
+- **Elastic/Kibana**: Busqueda en logs
+
+**SEGURIDAD:**
+- **CyberArk**: Gestion de contraseñas
+
+**ANALISIS:**
+- **Large Data Editor**: Archivos de log grandes
+- **Google Sheets**: Reportes y graficos
+
+**INTEGRACION:**
+- **DataPower**: Gateway de servicios
+
+**ESCALAMIENTO:**
+- **Sistema de tickets**: Registro y seguimiento
+- **Correos**: Comunicacion con equipos
+
+**Cada herramienta tiene su proposito especifico. Usarlas en conjunto te da vision completa del sistema.**
+
+---
+
+**FIN DE LA GUIA DE CONCEPTOS PARA ANALISTA DE INTEGRACION**
 Devolver un IDF o EDT:
 VER LOGS,  REVISAR EL TRAZA y flujos
 ✅ Respuestas exitosas
@@ -2982,3 +4976,17 @@ Concepto	Qué es	Uso
 IDF	Informe / Interfaz de datos funcional	Respuesta con significado funcional
 EDT	Estructura de transporte	Pasar datos entre capas
 DTO	Equivalente moderno	Muy usado en APIs REST
+----------------------------
+escalar coorreos,escale
+umbral, que es el graficos de aws
+pruebas de querys
+weblogic server Oracle (x)
+putty ssh server
+aws cloud watch (x)
+post venta
+CYBERARK
+elastic (x)
+DYNATRACE 
+large dta editor cilo , para seguir la traza
+aprender hacer gráficos en sheet
+datapower Gateway
